@@ -37,3 +37,5 @@ gem "github-pages", group: :jekyll_plugins
 gem "csv"
 gem "webrick"
 gem "bigdecimal"
+gem "minimal-mistakes-jekyll"
+gem "jekyll-include-cache" 

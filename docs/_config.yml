@@ -18,21 +18,91 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Your awesome title
-email: your-email@example.com
+#title: Andrea Solfrizzi
+#subtitle: Engineering Portfolio
+name: Andrea Solfrizzi
+email: andreasolfrizzi02@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-url: "https://clancyisdead11.github.io"
 baseurl: ""
-twitter_username: jekyllrb
-github_username:  jekyll
+url: "https://clancyisdead11.github.io"
+
+# twitter_username: jekyllrb
+github_username:  clancysidead11
 
 # Build settings
-theme: minima
+theme: minimal-mistakes-jekyll
 plugins:
   - jekyll-feed
+minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+
+# General settings
+breadcrumbs: true  # disabled by default
+date_format: "%d-%m-%Y"
+words_per_minute: 200
+enable_copy_code_button: true
+paginate: 5
+atom_feed:
+  hide: true
+
+search: true
+lunr:
+  search_within_pages: true
+
+
+author:
+  name     : "Andrea Solfrizzi"
+  avatar   : "/assets/images/io.png"
+  bio      : "My awesome biography constrained to a sentence or two goes here."
+  location : "Modena, Italy"
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/andrea-solfrizzi-b5b152292/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/clancyisdead11"
+
+footer:
+  links:
+    - label: "LinkedIn"
+      icon: "fab fa-fw fa-linkedin"
+      url: "https://www.linkedin.com/in/andrea-solfrizzi-b5b152292/"
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github"
+      url: "https://github.com/clancyisdead11"
+
+defaults:
+  # _posts
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: true
+      read_time: true
+      show_date: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: splash
+      author_profile: true
+  # _foo
+  - scope:
+      path: ""
+      type: foo
+    values:
+      layout: single
+
+      
+
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
