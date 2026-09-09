@@ -1,7 +1,29 @@
 <link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
 <style>
+    /* Inject GitHub logo next to the site title */
+.site-title {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+}
+
+.site-title::before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 20px !important;
+  height: 20px !important;
+  background-color: currentColor !important;
+  -webkit-mask-image: url("https://github.githubassets.com/favicons/favicon.svg");
+  mask-image: url("https://github.githubassets.com/favicons/favicon.svg");
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
   /* 1. Universal Text Link Hover Color & Center-Out Underline */
   .masthead__menu-item a,
+  .site-title,
   .page__content a,
   .author__urls a,
   .page__footer a,
@@ -15,14 +37,16 @@
   }
 
   .masthead__menu-item a:hover,
+  .site-title:hover,
   .page__content a:hover,
   .author__urls a:hover,
   .page__footer a:hover,
   .archive__item-title a:hover {
-    color: #52adc8 !important;
+    color: #ff0086 !important;
   }
 
   .masthead__menu-item a::after,
+  .site-title::after,
   .page__content a::after,
   .author__urls a::after,
   .page__footer a::after,
@@ -33,13 +57,14 @@
     bottom: 0 !important;
     width: 100% !important;
     height: 3px !important;
-    background-color: #52adc8 !important;
+    background-color: #ff0086 !important;
     transform: scaleX(0) !important;
     transform-origin: 50% 0 !important;
     transition: transform 0.25s ease-in-out !important;
   }
 
   .masthead__menu-item a:hover::after,
+  .site-title:hover:after,
   .page__content a:hover::after,
   .author__urls a:hover::after,
   .page__footer a:hover::after,
@@ -55,4 +80,49 @@
     color: inherit !important;
     text-decoration: none !important;
   }
+  /* Uniform spacing for author sidebar profile items */
+  .author__urls li {
+    margin-bottom: 0px !important;
+  }
+.author__urls a {
+    color: inherit !important;
+    text-decoration: none !important;
+    display: inline !important;
+    padding-bottom: 2px !important;
+    background-image: none !important;
+  }
+
+  .author__urls a:hover {
+    color: #ff0086 !important;
+    text-decoration: none !important;
+  }
+
+  /* Apply the same hover opacity transition to the right sidebar */
+  .home-sidebar {
+    opacity: 0.75 !important;
+    transition: opacity 0.2s ease-in-out !important;
+  }
+  .home-sidebar:hover {
+    opacity: 1 !important;
+  }
 </style>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const links = document.querySelectorAll("a");
+    links.forEach(link => {
+      const href = link.getAttribute("href");
+      if (href && !href.startsWith("#") && !href.startsWith("javascript:") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
+        try {
+          const url = new URL(link.href, window.location.origin);
+          // If the link points to a different domain/origin, open in a new tab
+          if (url.origin !== window.location.origin) {
+            link.setAttribute("target", "_blank");
+            link.setAttribute("rel", "noopener noreferrer");
+          }
+        } catch (e) {
+          // Catch any malformed URLs safely
+        }
+      }
+    });
+  });
+</script>
