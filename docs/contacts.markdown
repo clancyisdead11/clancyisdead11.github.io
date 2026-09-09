@@ -34,7 +34,7 @@ header:
     <div class="cards-slider" id="cardsSlider">
       
       <!-- 1. LinkedIn Card (Switched to VERTICAL to match height/width) -->
-      <div class="slider-item linkedin-wrapper">
+      <div class="slider-item linkedin-wrapper" id="linkedin-card-container">
         <div class="badge-base LI-profile-badge" data-locale="it_IT" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="andrea-solfrizzi-b5b152292" data-version="v1">
           <a class="badge-base__link LI-simple-link" href="https://it.linkedin.com/in/andrea-solfrizzi-b5b152292?trk=profile-badge"></a>
         </div>
@@ -193,7 +193,7 @@ header:
   }
 
   /* --- STRICTLY UNIFORM CARD DIMENSIONS & TOP ALIGNMENT --- */
-  .email-badge-card, .github-badge-card, .phone-badge-card{
+  .email-badge-card, .github-badge-card, .phone-badge-card, .linkedin-badge-card {
     width: 320px !important;
     height: 300px !important;
     margin: 0 !important;
@@ -222,10 +222,10 @@ header:
     box-sizing: border-box !important;
    }
    .slider-item.linkedin-wrapper iframe {
-    margin-top: -34px !important;
+    margin-top: -33px !important;
     margin-left: -2px
   }
-  .email-badge-header, .github-badge-header, .phone-badge-header {
+  .email-badge-header, .github-badge-header, .phone-badge-header, .linkedin-badge-header {
     background-color: #3f4e5d !important;
     padding: 10px 16px !important;
     display: flex !important;
@@ -235,17 +235,17 @@ header:
     flex-shrink: 0 !important;
   }
   
-  .email-badge-title, .github-badge-title, .phone-badge-title { font-weight: 600; font-size: 16px; }
-  .email-badge-icon, .github-badge-icon { fill: #ffffff; }
+  .email-badge-title, .github-badge-title, .phone-badge-title, .linkedin-badge-title { font-weight: 600; font-size: 16px; }
+  .email-badge-icon, .github-badge-icon, .linkedin-badge-icon { fill: #ffffff; }
 
-  .email-badge-body, .github-badge-body, .phone-badge-body {
+  .email-badge-body, .github-badge-body, .phone-badge-body, .linkedin-badge-body {
     padding: 16px !important;
     display: flex !important;
     flex-direction: column !important;
     flex-grow: 1 !important;
   }
 
-  .email-badge-pic, .github-badge-pic {
+  .email-badge-pic, .github-badge-pic, .linkedin-badge-pic {
     width: 56px !important;
     height: 56px !important;
     border-radius: 50% !important;
@@ -258,21 +258,21 @@ header:
     flex-grow: 1 !important;
   }
 
-  .email-badge-name, .github-badge-name, .phone-badge-name {
+  .email-badge-name, .github-badge-name, .phone-badge-name, .linkedin-badge-name {
     margin: 0 0 4px 0 !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     color: #ffffff !important;
   }
 
-  .email-badge-bio, .github-badge-bio, .phone-badge-bio {
+  .email-badge-bio, .github-badge-bio, .phone-badge-bio, .linkedin-badge-bio {
     margin: 0 0 8px 0 !important;
     font-size: 13px !important;
     color: #d1d5db !important;
     line-height: 1.4 !important;
   }
 
-  .email-badge-uni, .github-badge-username {
+  .email-badge-uni, .github-badge-username, .linkedin-badge-uni {
     display: block !important;
     margin: 0 0 8px 0 !important;
     font-size: 12px !important;
@@ -280,14 +280,14 @@ header:
     text-decoration: underline !important;
   }
   .github-badge-username { text-decoration: none !important; }
-  .email-badge-uni:hover, .github-badge-username:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .email-badge-uni:hover, .github-badge-username:hover, .linkedin-badge-uni:hover { color: #ffffff !important; text-decoration: underline !important; }
 
-  .email-badge-btn, .github-badge-btn, .phone-actions {
+  .email-badge-btn, .github-badge-btn, .linkedin-badge-btn, .phone-actions {
     margin-top: auto !important;
     flex-shrink: 0 !important;
   }
 
-  .email-badge-btn, .github-badge-btn {
+  .email-badge-btn, .github-badge-btn, .linkedin-badge-btn {
     display: inline-block !important;
     padding: 6px 16px !important;
     background-color: transparent !important;
@@ -299,7 +299,7 @@ header:
     cursor: pointer !important;
     transition: background-color 0.2s ease, border-color 0.2s ease !important;
   }
-  .email-badge-card:hover .email-badge-btn, .github-badge-card:hover .email-badge-btn {
+  .email-badge-card:hover .email-badge-btn, .github-badge-card:hover .github-badge-btn, .linkedin-badge-card:hover .linkedin-badge-btn {
     background-color: rgba(255, 255, 255, 0.1) !important;
     border-color: #e0e0e0 !important;
   }
@@ -390,7 +390,6 @@ header:
     const scrollAmount = 344; // Card width (320px) + gap (24px)
     slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
   }
-
   document.getElementById('email-contact-trigger').addEventListener('click', function(e) {
     e.preventDefault(); 
     const user = 'andreasolfrizzi1102';
@@ -398,9 +397,45 @@ header:
     const subject = encodeURIComponent('Contatto dal Portfolio Engineering');
     window.location.href = `mailto:${user}@${domain}?subject=${subject}`;
   });
-  
   document.getElementById('github-contact-trigger').addEventListener('click', function(e) {
     e.preventDefault(); 
     window.open('https://github.com/clancyisdead11', '_blank');
   });
+
+  // Function to detect iOS and swap the LinkedIn badge
+  function checkIOSAndSwapLinkedIn() {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
+                  (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+    if (isIOS) {
+      const container = document.getElementById('linkedin-card-container');
+      if (container) {
+        container.innerHTML = `
+          <div class="linkedin-badge-card" id="linkedin-contact-trigger">
+            <div class="linkedin-badge-header">
+              <span class="linkedin-badge-title">LinkedIn</span>
+              <i class="fa-brands fa-linkedin"></i>
+            </div>
+            <div class="linkedin-badge-body">
+              <img src="https://media.licdn.com/dms/image/v2/D4D03AQHNBOnpxNwreA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720686318451?e=1790812800&v=beta&t=ciY4jIdGlli34hUQb9ioJZgjkXatYEZr2PA9mI9pjZo" alt="Andrea Solfrizzi" class="linkedin-badge-pic">
+              <div class="card-text-content">
+                <h3 class="linkedin-badge-name">Andrea Solfrizzi</h3>
+                <p class="linkedin-badge-bio">MSc student in Advanced Automotive Engineering - High Performance Car Design @ MUNER</p>
+                <a class="linkedin-badge-uni">MotorValley University of Emilia Romagna (MUNER)</a>
+              </div>
+              <button class="linkedin-badge-btn">Visualizza profilo</button>
+            </div>
+          </div>
+        `;
+        
+        // Add click event listener to the newly injected iOS card
+        document.getElementById('linkedin-contact-trigger').addEventListener('click', function(e) {
+          e.preventDefault(); 
+          window.open('https://it.linkedin.com/in/andrea-solfrizzi-b5b152292', '_blank');
+        });
+      }
+    }
+  }
+
+  // Run the check when the page loads
+  window.addEventListener('DOMContentLoaded', checkIOSAndSwapLinkedIn);
 </script>
