@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "jekyll", ">= 4.3.0"
-gem "minimal-mistakes-jekyll"
+gem "jekyll-remote-theme"  # <-- Added this to fix local remote theme builds
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
