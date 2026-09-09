@@ -9,19 +9,28 @@ header:
 
 <!-- 1. MAIN CONTAINER -->
 <div class="contacts-page-wrapper" style="width: 100% !important;">
+  
   <!-- ========================================== -->
-  <!-- CV VIEWER (FULL WIDTH BELOW CAROUSEL)      -->
+  <!-- CV CALL TO ACTION (BLURRED PREVIEW)        -->
   <!-- ========================================== -->
-  <div class="cv-viewer-container">
-    <div class="cv-actions">
-      <a href="https://drive.google.com/uc?export=download&id=1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl" class="cv-download-btn">
-        <i class="fas fa-file-arrow-down" aria-hidden="true"></i>
-        Download CV
+  <div class="cv-cta-container">
+    <!-- Blurred Background Image (using Google Drive Thumbnail trick) -->
+    <div class="cv-blurred-bg"></div>
+    
+    <!-- Overlay Content -->
+    <div class="cv-overlay-content">
+      <p class="cv-subphrase">Download my complete CV for a detailed look at my engineering experience, technical skills, and academic projects.</p>
+      
+      <!-- Custom Animated Link Wrapper -->
+      <a href="https://drive.google.com/uc?export=download&id=1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl" class="cv-big-download-btn-wrapper">
+        <div class="cv-big-download-btn-content">
+          <i class="fas fa-file-arrow-down" aria-hidden="true"></i> <span>Download Full CV</span>
+        </div>
       </a>
     </div>
-    <iframe src="https://drive.google.com/file/d/1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl/preview" class="cv-embed" frameborder="0" allow="autoplay"></iframe>
   </div>
-<!-- ========================================== -->
+
+  <!-- ========================================== -->
   <!-- HORIZONTAL CAROUSEL WITH SIDE ARROWS       -->
   <!-- ========================================== -->
   <div class="carousel-container">
@@ -33,7 +42,7 @@ header:
     <!-- Scrollable Cards Track -->
     <div class="cards-slider" id="cardsSlider">
       
-      <!-- 1. LinkedIn Card (Switched to VERTICAL to match height/width) -->
+      <!-- 1. LinkedIn Card -->
       <div class="slider-item linkedin-wrapper" id="linkedin-card-container">
         <div class="badge-base LI-profile-badge" data-locale="it_IT" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="andrea-solfrizzi-b5b152292" data-version="v1">
           <a class="badge-base__link LI-simple-link" href="https://it.linkedin.com/in/andrea-solfrizzi-b5b152292?trk=profile-badge"></a>
@@ -51,7 +60,6 @@ header:
           <div class="card-text-content">
             <h3 class="email-badge-name">Andrea Solfrizzi</h3>
             <p class="email-badge-bio">MSc student in Advanced Automotive Engineering - High Performance Car Design @ MUNER</p>
-            <a class="email-badge-uni">MotorValley University of Emilia Romagna (MUNER)</a>
           </div>
           <button class="email-badge-btn">Send email</button>
         </div>
@@ -93,7 +101,6 @@ header:
           <div class="card-text-content">
             <h3 class="email-badge-name">Andrea Solfrizzi</h3>
             <p class="email-badge-bio">Engineering Student | Vehicle Dynamics & Aerodynamics</p>
-            <a href="#" class="github-badge-username">@clancyisdead11</a>
           </div>
           <button class="email-badge-btn">Visualizza profilo</button>
         </div>
@@ -131,6 +138,150 @@ header:
     padding-right: 1.5rem;
     box-sizing: border-box;
   }
+
+  /* --- CV BLURRED CTA STYLES --- */
+  .cv-cta-container {
+    position: relative;
+    width: 100%;
+    max-width: 1000px;
+    height: 400px; 
+    margin: 0 auto 40px auto;
+    background-color: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  .cv-blurred-bg {
+    position: absolute;
+    top: -20px; right: -20px; bottom: -20px; left: -20px; 
+    background-image: url('https://drive.google.com/thumbnail?id=1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl&sz=w1000');
+    background-size: cover;
+    background-position: top center;
+    filter: blur(12px) brightness(0.35); 
+    z-index: 1;
+  }
+
+  .cv-overlay-content {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    text-align: center;
+  }
+
+  .cv-catchphrase {
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  }
+
+  .cv-subphrase {
+    color: #d1d5db;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 0 32px 0;
+    line-height: 1.5;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  }
+
+  /* --- CV BUTTON "IN TO OUT" CUSTOM ANIMATION --- */
+  
+  /* 1. The outer wrapper holds the base shape and blocks theme underlines */
+  .cv-big-download-btn-wrapper {
+    display: inline-block !important;
+    text-decoration: none !important;
+    border: none !important;
+    background-color: #3f4e5d !important; /* Default resting background color */
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 8px !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4) !important;
+    transition: transform 0.2s ease !important;
+    overflow: hidden !important; /* Clips the background fill perfectly inside rounded corners */
+  }
+
+  /* Kills any weird pseudo elements minimal mistakes tries to force */
+  .cv-big-download-btn-wrapper::after,
+  .cv-big-download-btn-wrapper::before {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* 2. The inner content creates a new layer for the animation */
+  .cv-big-download-btn-content {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: transparent !important; /* Transparent so wrapper base color shows through */
+    color: #ffffff !important; 
+    height: 56px !important; 
+    padding: 0 36px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    gap: 12px !important;
+    line-height: normal !important;
+    margin: 0 !important;
+    z-index: 1 !important;
+  }
+
+  /* 3. The sweeping color change from IN to OUT */
+  .cv-big-download-btn-content::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: #52667a !important; /* The brighter hover color */
+    transform: scaleX(0) !important; /* Starts invisible in the center */
+    transform-origin: center !important; /* Expands outwards from the middle */
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important; /* Smooth sweeping speed */
+    z-index: -1 !important; /* Placed behind the text */
+  }
+
+  /* 4. The sweeping underline from IN to OUT */
+  .cv-big-download-btn-content::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 4px !important; /* Bold, clear underline */
+    background-color: #ffffff !important; /* Crisp white line */
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 2 !important;
+  }
+
+  /* 5. Triggering the animations when hovering the wrapper */
+  .cv-big-download-btn-wrapper:hover {
+    transform: translateY(-3px) !important; /* The physical pop-up */
+    text-decoration: none !important;
+  }
+
+  .cv-big-download-btn-wrapper:hover .cv-big-download-btn-content::before,
+  .cv-big-download-btn-wrapper:hover .cv-big-download-btn-content::after {
+    transform: scaleX(1) !important; /* Explode elements to 100% width on hover */
+  }
+
+  /* Ensures text always stays perfectly on top of the sweeping color layer */
+  .cv-big-download-btn-content i,
+  .cv-big-download-btn-content span {
+    position: relative !important;
+    z-index: 2 !important;
+  }
+
 
   /* --- CAROUSEL WRAPPER & ARROWS --- */
   .carousel-container {
@@ -225,7 +376,7 @@ header:
     margin-top: -33px !important;
     margin-left: -2px
   }
-  .email-badge-header, .github-badge-header, .phone-badge-header, .linkedin-badge-header {
+  .email-badge-header, .github-badge-header, .phone-badge-header {
     background-color: #3f4e5d !important;
     padding: 10px 16px !important;
     display: flex !important;
@@ -235,17 +386,17 @@ header:
     flex-shrink: 0 !important;
   }
   
-  .email-badge-title, .github-badge-title, .phone-badge-title, .linkedin-badge-title { font-weight: 600; font-size: 16px; }
-  .email-badge-icon, .github-badge-icon, .linkedin-badge-icon { fill: #ffffff; }
+  .email-badge-title, .github-badge-title, .phone-badge-title { font-weight: 600; font-size: 16px; }
+  .email-badge-icon, .github-badge-icon { fill: #ffffff; }
 
-  .email-badge-body, .github-badge-body, .phone-badge-body, .linkedin-badge-body {
+  .email-badge-body, .github-badge-body, .phone-badge-body {
     padding: 16px !important;
     display: flex !important;
     flex-direction: column !important;
     flex-grow: 1 !important;
   }
 
-  .email-badge-pic, .github-badge-pic, .linkedin-badge-pic {
+  .email-badge-pic, .github-badge-pic {
     width: 56px !important;
     height: 56px !important;
     border-radius: 50% !important;
@@ -258,21 +409,21 @@ header:
     flex-grow: 1 !important;
   }
 
-  .email-badge-name, .github-badge-name, .phone-badge-name, .linkedin-badge-name {
+  .email-badge-name, .github-badge-name, .phone-badge-name {
     margin: 0 0 4px 0 !important;
     font-size: 16px !important;
     font-weight: 600 !important;
     color: #ffffff !important;
   }
 
-  .email-badge-bio, .github-badge-bio, .phone-badge-bio, .linkedin-badge-bio {
+  .email-badge-bio, .github-badge-bio, .phone-badge-bio {
     margin: 0 0 8px 0 !important;
     font-size: 13px !important;
     color: #d1d5db !important;
     line-height: 1.4 !important;
   }
 
-  .email-badge-uni, .github-badge-username, .linkedin-badge-uni {
+  .email-badge-uni, .github-badge-username {
     display: block !important;
     margin: 0 0 8px 0 !important;
     font-size: 12px !important;
@@ -280,14 +431,14 @@ header:
     text-decoration: underline !important;
   }
   .github-badge-username { text-decoration: none !important; }
-  .email-badge-uni:hover, .github-badge-username:hover, .linkedin-badge-uni:hover { color: #ffffff !important; text-decoration: underline !important; }
+  .email-badge-uni:hover, .github-badge-username:hover { color: #ffffff !important; text-decoration: underline !important; }
 
-  .email-badge-btn, .github-badge-btn, .linkedin-badge-btn, .phone-actions {
+  .email-badge-btn, .github-badge-btn, .phone-actions {
     margin-top: auto !important;
     flex-shrink: 0 !important;
   }
 
-  .email-badge-btn, .github-badge-btn, .linkedin-badge-btn {
+  .email-badge-btn, .github-badge-btn {
     display: inline-block !important;
     padding: 6px 16px !important;
     background-color: transparent !important;
@@ -299,12 +450,12 @@ header:
     cursor: pointer !important;
     transition: background-color 0.2s ease, border-color 0.2s ease !important;
   }
-  .email-badge-card:hover .email-badge-btn, .github-badge-card:hover .github-badge-btn, .linkedin-badge-card:hover .linkedin-badge-btn {
+  .email-badge-card:hover .email-badge-btn, .github-badge-card:hover .email-badge-btn {
     background-color: rgba(255, 255, 255, 0.1) !important;
     border-color: #e0e0e0 !important;
   }
 
-  /* --- PHONE SPECIFIC STYLES --- */
+  /* --- PHONE / WHATSAPP SPECIFIC STYLES --- */
   .phone-badge-body { text-align: center !important; }
   .phone-avatar-placeholder {
     width: 56px !important;
@@ -326,6 +477,7 @@ header:
     text-decoration: underline !important;
   }
   .phone-badge-dial:hover { color: #ffffff !important; }
+  
   .phone-badge-btn {
     display: block !important;
     width: 100% !important;
@@ -333,74 +485,50 @@ header:
     background-color: #25D366 !important;
     color: #000000 !important;
     text-decoration: none !important;
+    border: none !important;
     border-radius: 24px !important;
     font-size: 14px !important;
     font-weight: 600 !important;
-    transition: background-color 0.2s ease, transform 0.1s ease !important;
+    transition: background-color 0.2s ease, transform 0.2s ease !important;
     box-sizing: border-box !important;
   }
-  .phone-badge-btn:hover { background-color: #1ebe57 !important; transform: translateY(-1px) !important; }
 
-  /* --- CV VIEWER STYLES --- */
-  .cv-viewer-container {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto 32px auto;
-    background-color: #000000;
-    border: 1px solid #2a2a2a;
-    border-radius: 8px;
-    overflow: hidden;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  /* STRICTLY DESTROY the pink theme underline explicitly for the WhatsApp Button */
+  .phone-badge-btn::after,
+  .phone-badge-btn::before {
+    display: none !important;
+    content: none !important;
   }
-  .cv-actions {
-    background-color: #1a1a1a;
-    padding: 12px 16px;
-    display: flex;
-    justify-content: flex-end;
-    border-bottom: 1px solid #2a2a2a;
+
+  /* Clean up-shift pop animation for WhatsApp button ONLY */
+  .phone-badge-btn:hover { 
+    background-color: #1ebe57 !important; 
+    color: #000000 !important;
+    text-decoration: none !important;
+    transform: translateY(-2px) !important; 
   }
-  .cv-download-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 16px;
-    background-color: #3f4e5d;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 14px;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-  }
-  .cv-download-btn:hover { background-color: #52667a; color: #ffffff; }
-  .cv-embed {
-    width: 100%;
-    height: 800px;
-    display: block;
-    border: none;
-  }
+
 </style>
 
 
 <!-- 3. JAVASCRIPT -->
 <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 <script>
+  // Updated scroll function with infinite wrapping logic
   function scrollCarousel(direction) {
     const slider = document.getElementById('cardsSlider');
     const scrollAmount = 344; // Card width (320px) + gap (24px)
     const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
 
     if (direction === 1 && slider.scrollLeft >= maxScrollLeft - 5) {
-      // If at the end and pressing right, loop back to the start
       slider.scrollTo({ left: 0, behavior: 'smooth' });
     } else if (direction === -1 && slider.scrollLeft <= 5) {
-      // If at the start and pressing left, loop to the end
       slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
     } else {
-      // Otherwise, scroll normally
       slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
     }
   }
+
   document.getElementById('email-contact-trigger').addEventListener('click', function(e) {
     e.preventDefault(); 
     const user = 'andreasolfrizzi1102';
@@ -421,24 +549,22 @@ header:
       const container = document.getElementById('linkedin-card-container');
       if (container) {
         container.innerHTML = `
-          <div class="linkedin-badge-card" id="linkedin-contact-trigger">
+        <div class="linkedin-custom-card" id="linkedin-contact-trigger">
             <div class="linkedin-badge-header">
               <span class="linkedin-badge-title">LinkedIn</span>
-              <i class="fa-brands fa-linkedin"></i>
+              <i class="fa-brand fa-linkedin"></i>
             </div>
             <div class="linkedin-badge-body">
-              <img src="https://media.licdn.com/dms/image/v2/D4D03AQHNBOnpxNwreA/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1720686318451?e=1790812800&v=beta&t=ciY4jIdGlli34hUQb9ioJZgjkXatYEZr2PA9mI9pjZo" alt="Andrea Solfrizzi" class="linkedin-badge-pic">
+              <img src="https://lh3.googleusercontent.com/a/ACg8ocKyWuSJA1QQn6yneF42QkpHmeIJvS4JowQyIuuWpWxWPWqGFw=s60-c-mo" alt="Andrea Solfrizzi" class="linkedin-badge-pic">
               <div class="card-text-content">
                 <h3 class="linkedin-badge-name">Andrea Solfrizzi</h3>
                 <p class="linkedin-badge-bio">MSc student in Advanced Automotive Engineering - High Performance Car Design @ MUNER</p>
-                <a class="linkedin-badge-uni">MotorValley University of Emilia Romagna (MUNER)</a>
               </div>
               <button class="linkedin-badge-btn">Visualizza profilo</button>
             </div>
           </div>
         `;
         
-        // Add click event listener to the newly injected iOS card
         document.getElementById('linkedin-contact-trigger').addEventListener('click', function(e) {
           e.preventDefault(); 
           window.open('https://it.linkedin.com/in/andrea-solfrizzi-b5b152292', '_blank');
@@ -447,6 +573,5 @@ header:
     }
   }
 
-  // Run the check when the page loads
   window.addEventListener('DOMContentLoaded', checkIOSAndSwapLinkedIn);
 </script>
