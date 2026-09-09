@@ -2,6 +2,7 @@
 layout: single
 classes: wide
 title: "Contacts"
+permalink: /contacts/
 header:
   overlay_image: ~
   overlay_filter: ~
