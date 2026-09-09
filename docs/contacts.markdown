@@ -388,7 +388,18 @@ header:
   function scrollCarousel(direction) {
     const slider = document.getElementById('cardsSlider');
     const scrollAmount = 344; // Card width (320px) + gap (24px)
-    slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    const maxScrollLeft = slider.scrollWidth - slider.clientWidth;
+
+    if (direction === 1 && slider.scrollLeft >= maxScrollLeft - 5) {
+      // If at the end and pressing right, loop back to the start
+      slider.scrollTo({ left: 0, behavior: 'smooth' });
+    } else if (direction === -1 && slider.scrollLeft <= 5) {
+      // If at the start and pressing left, loop to the end
+      slider.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+    } else {
+      // Otherwise, scroll normally
+      slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
   }
   document.getElementById('email-contact-trigger').addEventListener('click', function(e) {
     e.preventDefault(); 
