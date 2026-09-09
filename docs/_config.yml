@@ -41,7 +41,7 @@ plugins:
 minimal_mistakes_skin: "dark" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # General settings
-breadcrumbs: true  # disabled by default
+#breadcrumbs: true  # disabled by default
 date_format: "%d-%m-%Y"
 words_per_minute: 200
 enable_copy_code_button: true

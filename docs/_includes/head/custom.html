@@ -1,0 +1,58 @@
+<link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
+<style>
+  /* 1. Universal Text Link Hover Color & Center-Out Underline */
+  .masthead__menu-item a,
+  .page__content a,
+  .author__urls a,
+  .page__footer a,
+  .archive__item-title a {
+    color: inherit !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    position: relative !important;
+    padding-bottom: 4px !important; 
+    transition: color 0.2s ease-in-out !important;
+  }
+
+  .masthead__menu-item a:hover,
+  .page__content a:hover,
+  .author__urls a:hover,
+  .page__footer a:hover,
+  .archive__item-title a:hover {
+    color: #52adc8 !important;
+  }
+
+  .masthead__menu-item a::after,
+  .page__content a::after,
+  .author__urls a::after,
+  .page__footer a::after,
+  .archive__item-title a::after {
+    content: "" !important;
+    position: absolute !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: 3px !important;
+    background-color: #52adc8 !important;
+    transform: scaleX(0) !important;
+    transform-origin: 50% 0 !important;
+    transition: transform 0.25s ease-in-out !important;
+  }
+
+  .masthead__menu-item a:hover::after,
+  .page__content a:hover::after,
+  .author__urls a:hover::after,
+  .page__footer a:hover::after,
+  .archive__item-title a:hover::after {
+    transform: scaleX(1) !important;
+  }
+
+  /* 2. Disable clicking or hovering on the author's name */
+  .author__content a .author__name,
+  .author__content a[href] {
+    pointer-events: none !important;
+    cursor: default !important;
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+</style>

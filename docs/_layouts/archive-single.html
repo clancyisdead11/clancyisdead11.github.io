@@ -1,0 +1,68 @@
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% elsif post.header.overlay_image %}
+  {% capture teaser %}{{ post.header.overlay_image }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork" style="height: 100%; display: flex; flex-direction: column;">
+    
+    {% if include.type == 'grid' and teaser %}
+      <!-- Custom Card Header with Image Overlay -->
+      <div class="archive__item-overlay-header" style="
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ teaser | relative_url }}');
+        background-size: cover;
+        background-position: center;
+        padding: 3.5rem 1.5rem;
+        border-radius: 8px 8px 0 0;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      ">
+        <h2 class="archive__item-title" itemprop="headline" style="margin: 0; font-size: 1.4rem;">
+          {% if post.link %}
+            <a href="{{ post.link }}" style="color: #ffffff; text-decoration: none;">{{ title }}</a> 
+            <a href="{{ post.url | relative_url }}" rel="permalink" style="color: #ffffff;">
+              <i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span>
+            </a>
+          {% else %}
+            <a href="{{ post.url | relative_url }}" rel="permalink" style="color: #ffffff; text-decoration: none;">{{ title }}</a>
+          {% endif %}
+        </h2>
+      </div>
+      
+      <!-- Custom Card Body -->
+      <div class="archive__item-body" style="padding: 1.5rem; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-top: none; border-radius: 0 0 8px 8px; flex-grow: 1;">
+        {% include page__meta.html type=include.type %}
+        {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description" style="margin-top: 0.75rem; font-size: 0.9rem;">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+      </div>
+
+    {% else %}
+      <!-- Standard Theme Fallback (For lists or posts without images) -->
+      {% if teaser %}
+        <div class="archive__item-teaser">
+          <img src="{{ teaser | relative_url }}" alt="">
+        </div>
+      {% endif %}
+      <h2 class="archive__item-title no_toc" itemprop="headline">
+        {% if post.link %}
+          <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+        {% else %}
+          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+        {% endif %}
+      </h2>
+      {% include page__meta.html type=include.type %}
+      {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+    {% endif %}
+
+  </article>
+</div>

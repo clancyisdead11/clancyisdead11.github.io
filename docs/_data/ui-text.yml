@@ -1,0 +1,5 @@
+en: &DEFAULT_EN
+  recent_posts: "Projects"
+
+en-US:
+  <<: *DEFAULT_EN
