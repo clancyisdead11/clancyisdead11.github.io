@@ -105,6 +105,44 @@
   .home-sidebar:hover {
     opacity: 1 !important;
   }
+  @media (min-width: 64em) {
+    .layout--archive,
+    .initial-content {
+      display: block !important;
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+      max-width: 100% !important;
+    }
+    .initial-content > .inner,
+    .page,
+    .archive {
+      float: none !important;
+      width: 100% !important;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+    }
+  }
+/* Fix layout overlap for posts with an author profile sidebar */
+  .layout--single .sidebar {
+    position: relative !important;
+    float: left !important;
+    width: 25% !important;
+    margin-right: 4% !important;
+  }
+
+  .layout--single .page {
+    float: right !important;
+    width: 71% !important;
+    max-width: none !important;
+  }
+
+  @media (max-width: 64em) {
+    .layout--single .sidebar,
+    .layout--single .page {
+      float: none !important;
+      width: 100% !important;
+    }
+  }
 </style>
 <script>
   document.addEventListener("DOMContentLoaded", function() {

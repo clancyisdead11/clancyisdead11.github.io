@@ -93,8 +93,8 @@ defaults:
       path: ""
       type: pages
     values:
-      layout: splash
-      author_profile: true
+      layout: single
+      author_profile: false
   # _foo
   - scope:
       path: ""
