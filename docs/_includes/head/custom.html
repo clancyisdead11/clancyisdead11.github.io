@@ -171,17 +171,58 @@
   }
 
   /* ========================================== */
-  /* 4. GLOBAL PAGE SPACING                     */
+  /* 4. GLOBAL PAGE SPACING & POST HERO FIX     */
   /* ========================================== */
   
   #main {
     padding-top: 90px !important; 
   }
 
+  /* 1. Fixes the standard post hero image (Removes all gaps and background bars) */
+  .page__hero {
+    margin-top: 70px !important; 
+    margin-bottom: 0 !important; 
+    padding: 0 !important; 
+    background: transparent !important;
+    max-height: none !important;
+  }
+
+  .page__hero .wrapper {
+    padding: 0 !important;
+  }
+
+  .page__hero img {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    display: block !important;
+    vertical-align: middle !important;
+  }
+
+  /* 2. Controls the gap between the hero image and the post content */
+  .page__hero + #main,
+  .page__hero--overlay + #main {
+    padding-top: 24px !important; 
+  }
+
+  /* 3. Shrinks the massive gap at the top of the post content */
+  .layout--single .sidebar {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+  }
+  
+  .layout--single .page {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  
+  .author__content {
+    margin-bottom: 16px !important;
+  }
+
   html {
     scroll-behavior: smooth !important;
   }
-
   /* ========================================== */
   /* 5. HERO IMAGE & CONTAINER FIXES            */
   /* ========================================== */
@@ -211,7 +252,7 @@
   }
 
   .page__hero--overlay .page__title {
-    font-size: 2.2rem !important; 
+    font-size: 1.8rem !important; /* Scaled down from 2.2rem */
     font-weight: 800 !important;
     color: #ffffff !important; 
     margin-bottom: 12px !important;
@@ -221,7 +262,7 @@
 
   .page__hero--overlay .page__hero-excerpt,
   .page__hero--overlay .page__hero-excerpt p {
-    font-size: 1rem !important; 
+    font-size: 0.95rem !important; /* Scaled down from 1rem */
     line-height: 1.5 !important;
     color: #d1d5db !important; 
     margin: 0 auto 24px auto !important;
@@ -425,6 +466,247 @@
     box-shadow: 0 8px 24px rgba(37,211,102,0.4) !important;
   }
 
+  /* ========================================== */
+  /* 10. HOMEPAGE PROJECT CAROUSEL CARDS        */
+  /* ========================================== */
+
+  /* The Card is now the master flex container */
+  .home-project-card {
+    flex: 0 0 100% !important; 
+    scroll-snap-align: start;
+    position: relative !important; /* CRITICAL: anchors the invisible link */
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100%;
+    height: auto;
+    background: #0a0a0a;
+    border: 1px solid #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  @media (min-width: 768px) {
+    .home-project-card {
+      flex-direction: row !important;
+      height: 360px !important;
+    }
+  }
+
+  .home-project-card:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+    border-color: #52667a !important; 
+  }
+
+  /* Invisible Link Overlay */
+  .home-project-overlay-link {
+    position: absolute !important;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 10 !important;
+    text-decoration: none !important;
+  }
+
+  /* Image Half */
+  .home-project-image {
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #2a2a2a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3f4e5d;
+    font-size: 64px;
+  }
+
+  @media (min-width: 768px) {
+    .home-project-image {
+      width: 45% !important;
+      height: 100% !important;
+      border-bottom: none !important;
+      border-right: 1px solid #2a2a2a !important;
+      background-color: #ffffff; /* Fills transparent space for CAD */
+    }
+  }
+
+  .home-project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .home-project-card:hover .home-project-image img {
+    transform: scale(1.06);
+  }
+
+  /* Text Half */
+  .home-project-content {
+    width: 100%;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background: linear-gradient(135deg, #111111 0%, #080808 100%);
+  }
+
+  @media (min-width: 768px) {
+    .home-project-content {
+      width: 55% !important;
+      padding: 36px 40px !important;
+    }
+  }
+
+  .home-project-title {
+    font-size: 1.3rem !important; /* Scaled down from 1.6rem */
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin: 0 0 12px 0 !important;
+    line-height: 1.25 !important;
+    letter-spacing: -0.02em;
+  }
+
+  .home-project-meta {
+    font-size: 0.8rem; /* Scaled down slightly */
+    color: #888888;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .home-project-excerpt {
+    font-size: 0.9rem !important; /* Scaled down from 1rem */
+    color: #a1a1aa !important;
+    line-height: 1.5 !important;
+    margin: 0 0 24px 0 !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .home-project-readmore {
+    margin-top: auto; 
+    font-size: 0.95rem; /* Scaled down from 1.05rem */
+    font-weight: 600;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.2s ease;
+  }
+
+  .home-project-readmore i {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .home-project-card:hover .home-project-readmore {
+    color: #d1d5db; 
+  }
+
+  .home-project-card:hover .home-project-readmore i {
+    transform: translateX(6px); 
+  }
+  /* ========================================== */
+  /* 11. MOBILE OPTIMIZATIONS                   */
+  /* ========================================== */
+  
+  /* Hide the custom mobile contact button on desktop */
+  .mobile-contact-btn {
+    display: none !important;
+  }
+
+  @media (max-width: 768px) {
+    
+    /* ALIGNMENT FIX: Matches the main content padding with the header logo */
+    .layout--single .page__inner-wrap,
+    .contacts-page-wrapper {
+      padding-left: 24px !important; 
+      padding-right: 24px !important;
+    }
+
+    /* 1. Hero Section Mobile Fixes */
+    .page__hero--overlay {
+      padding-top: 190px !important; 
+      padding-bottom: 60px !important;
+    }
+    
+    .page__hero--overlay .wrapper {
+      padding: 24px 16px !important; 
+      width: 90% !important; 
+    }
+    
+    .hero-avatar {
+      width: 70px !important; 
+      height: 70px !important;
+      margin-bottom: 12px !important;
+    }
+    
+    .page__hero--overlay .page__title {
+      font-size: 1.5rem !important; 
+    }
+    
+    .page__hero--overlay .page__hero-excerpt,
+    .page__hero--overlay .page__hero-excerpt p {
+      font-size: 0.9rem !important;
+      margin-bottom: 16px !important;
+    }
+
+    .page__hero--overlay .wrapper p:has(.btn),
+    .page__hero--overlay .wrapper p:last-of-type {
+      flex-direction: column !important;
+      gap: 10px !important;
+    }
+
+    /* 2. Homepage Project Cards Mobile Fixes */
+    .home-project-image {
+      height: 180px !important; 
+    }
+    
+    .home-project-content {
+      padding: 20px 24px !important; 
+    }
+    
+    .home-project-title {
+      font-size: 1.25rem !important;
+      margin-bottom: 8px !important;
+    }
+    
+    .home-project-excerpt {
+      font-size: 0.85rem !important;
+      margin-bottom: 16px !important;
+      -webkit-line-clamp: 2; 
+    }
+
+    /* 3. POST PAGES (ALL POSTS) MOBILE FIXES */
+    /* Shrink the massive gap at the top of the screen */
+    .layout--single .sidebar {
+      margin-top: 0 !important;
+      padding-top: 16px !important;
+    }
+    
+    .layout--single .page {
+      padding-top: 0 !important;
+      margin-top: 0 !important;
+    }
+    
+    .author__content {
+      margin-bottom: 8px !important;
+    }
+
+    /* Show our custom Contacts button and hide the native dropdown list completely */
+    .mobile-contact-btn {
+      display: flex !important;
+    }
+    
+    ul.author__urls {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
@@ -447,21 +729,39 @@
     // 2. HERO BUTTONS FIX (Forces them to behave exactly like profile cards)
     const heroButtons = document.querySelectorAll('.page__hero--overlay .btn');
     heroButtons.forEach(btn => {
-      // Remove native theme color classes that override our CSS
       btn.classList.forEach(className => {
         if (className.startsWith('btn--')) {
           btn.classList.remove(className);
         }
       });
-      
-      // Ensure they have our master class
       btn.classList.add('btn-elegant');
-      
-      // Wrap plain text in a span so hover color transitions work perfectly
       if (!btn.querySelector('span')) {
         const rawText = btn.innerHTML;
         btn.innerHTML = `<span>${rawText}</span>`;
       }
     });
+
+    // 3. MOBILE AUTHOR PROFILE FIX: Replace "Follow" with "Contacts"
+    const authorUrlsWrapper = document.querySelector('.author__urls-wrapper');
+    if (authorUrlsWrapper) {
+      const followBtn = authorUrlsWrapper.querySelector('button');
+      if (followBtn) {
+        // Create the new Contacts button
+        const contactBtn = document.createElement('a');
+        contactBtn.href = '/contacts/';
+        contactBtn.className = 'btn-elegant mobile-contact-btn';
+        
+        // Inline styles to perfectly fit the author profile block
+        contactBtn.style.height = '34px'; 
+        contactBtn.style.padding = '0 16px';
+        contactBtn.style.fontSize = '13px';
+        contactBtn.style.marginTop = '12px';
+        contactBtn.style.width = '100%';
+        contactBtn.innerHTML = '<span>Contacts</span> <i class="fas fa-arrow-right" style="margin-left: 6px;"></i>';
+        
+        // Swap them out!
+        authorUrlsWrapper.replaceChild(contactBtn, followBtn);
+      }
+    }
   });
 </script>

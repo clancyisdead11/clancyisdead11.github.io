@@ -58,14 +58,6 @@ author:
   name     : "Andrea Solfrizzi"
   avatar   : "/assets/images/io.png"
   bio      : "My awesome biography constrained to a sentence or two goes here."
-  location : "Modena, Italy"
-  links:
-    - label: "LinkedIn"
-      icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/andrea-solfrizzi-b5b152292/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/clancyisdead11"
 
 footer:
   links:
@@ -85,7 +77,6 @@ defaults:
       layout: splash
       author_profile: true
       read_time: true
-      show_date: true
       share: true
       related: true
   # _pages

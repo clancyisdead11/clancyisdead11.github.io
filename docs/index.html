@@ -43,41 +43,42 @@ excerpt: "MSc student in Advanced Automotive Engineering - High Performance Car 
   <div class="proj-slider" id="projSlider">
     
     {% for post in site.posts %}
-      <!-- Bulletproof Link Wrapper - 100% WIDTH -->
-      <a href="{{ post.url | relative_url }}" class="proj-card-wrapper">
-        <div class="proj-card">
-          
-          <!-- Post Image (Left Side on Desktop) -->
+      <!-- Robust 'onclick' makes the entire card a bulletproof clickable zone -->
+      <div class="home-project-card" onclick="window.location.href='{{ post.url | relative_url }}';" style="cursor: pointer;">
+        
+        <!-- LEFT SIDE: IMAGE -->
+        <div class="home-project-image">
           {% if post.header.teaser %}
-            <div class="proj-card-img" style="background-image: url('{{ post.header.teaser | relative_url }}');"></div>
+            <img src="{{ post.header.teaser | relative_url }}" alt="{{ post.title }}">
+          {% elsif post.header.image %}
+            <img src="{{ post.header.image | relative_url }}" alt="{{ post.title }}">
           {% else %}
-            <!-- Upgraded Fallback design with subtle gradient -->
-            <div class="proj-card-img placeholder-img">
-               <i class="fas fa-file-alt"></i>
-            </div>
+            <!-- Placeholder icon for projects without images -->
+            <i class="fas fa-file-alt"></i>
           {% endif %}
-          
-          <!-- Post Text Content (Right Side on Desktop) -->
-          <div class="proj-card-content">
-            <h3 class="proj-card-title">{{ post.title }}</h3>
-            <div class="proj-card-meta">
-              <i class="far fa-calendar-alt"></i> {{ post.date | date: "%d-%m-%Y" }}
-            </div>
-            <p class="proj-card-excerpt">
-              {{ post.excerpt | strip_html | truncatewords: 30 }}
-            </p>
-            
-            <!-- Elegant Button Override -->
-            <div class="btn-elegant" style="margin-top: auto; align-self: flex-start;">
-              <span>Read Project</span> <i class="fas fa-arrow-right"></i>
-            </div>
-            
-          </div>
-
         </div>
-      </a>
+        
+        <!-- RIGHT SIDE: TEXT CONTENT -->
+        <div class="home-project-content">
+          <h3 class="home-project-title">{{ post.title }}</h3>
+          
+          <div class="home-project-meta">
+            <i class="far fa-calendar-alt"></i> <span>{{ post.date | date: "%d-%m-%Y" }}</span>
+          </div>
+          
+          <p class="home-project-excerpt">
+            {{ post.excerpt | remove: "[cite: 1]" | remove: "[cite: 2]" | remove: "[cite: 3]" | strip_html | truncatewords: 25 }}
+          </p>
+          
+          <div class="home-project-readmore">
+            <a href="{{ post.url | relative_url }}" style="color: inherit; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+              <span>Read Project</span> <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        
+      </div>
     {% endfor %}
-
   </div>
 
   <!-- Right Arrow Button -->
@@ -232,127 +233,6 @@ excerpt: "MSc student in Advanced Automotive Engineering - High Performance Car 
   
   .proj-slider::-webkit-scrollbar {
     display: none; 
-  }
-
-  /* --- FULL WIDTH POST LINK WRAPPER --- */
-  .proj-card-wrapper {
-    flex: 0 0 100% !important; 
-    width: 100% !important;
-    display: block !important;
-    text-decoration: none !important;
-    border: none !important;
-    background: transparent !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    border-radius: 12px !important;
-    scroll-snap-align: start;
-    transition: transform 0.2s ease !important;
-  }
-
-  .proj-card-wrapper::after,
-  .proj-card-wrapper::before {
-    display: none !important;
-    content: none !important;
-  }
-
-  .proj-card-wrapper:hover {
-    transform: translateY(-4px) !important;
-    text-decoration: none !important;
-  }
-
-  /* --- INDIVIDUAL POST CARD INTERIOR (SIDE-BY-SIDE DESIGN) --- */
-  .proj-card {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    background-color: #111 !important;
-    border: 1px solid #2a2a2a !important;
-    border-radius: 12px !important;
-    overflow: hidden !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-  }
-
-  @media (min-width: 768px) {
-    .proj-card {
-      flex-direction: row !important; 
-      height: 380px !important; 
-    }
-  }
-
-  .proj-card-wrapper:hover .proj-card {
-    border-color: #52667a !important; 
-    box-shadow: 0 12px 32px rgba(0,0,0,0.7) !important;
-  }
-
-  /* --- CARD IMAGE COMPONENT --- */
-  .proj-card-img {
-    width: 100%;
-    height: 240px; 
-    background-size: cover;
-    background-position: center;
-    border-bottom: 1px solid #2a2a2a;
-    flex-shrink: 0;
-  }
-  
-  @media (min-width: 768px) {
-    .proj-card-img {
-      width: 55% !important; 
-      height: 100% !important;
-      border-bottom: none !important;
-      border-right: 1px solid #2a2a2a !important;
-    }
-  }
-  
-  .placeholder-img {
-    background: linear-gradient(135deg, #111111 0%, #1a1a1a 100%); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3f4e5d;
-    font-size: 64px;
-  }
-
-  /* --- CARD TEXT CONTENT --- */
-  .proj-card-content {
-    padding: 32px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-    justify-content: center !important; 
-  }
-
-  @media (min-width: 768px) {
-    .proj-card-content {
-      width: 45% !important;
-      padding: 40px !important;
-    }
-  }
-
-  .proj-card-title {
-    margin: 0 0 12px 0 !important;
-    font-size: 28px !important; 
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    line-height: 1.2 !important;
-  }
-
-  .proj-card-meta {
-    font-size: 13px !important;
-    color: #3f4e5d !important; 
-    margin-bottom: 20px !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 8px !important;
-    font-weight: 600 !important;
-  }
-
-  .proj-card-excerpt {
-    margin: 0 0 24px 0 !important;
-    font-size: 16px !important;
-    color: #d1d5db !important;
-    line-height: 1.6 !important;
   }
 
   /* --- CORE COMPETENCES GRID --- */
