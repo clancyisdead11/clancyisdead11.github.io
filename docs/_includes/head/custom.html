@@ -1,25 +1,25 @@
 <link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
 <style>
-    /* Inject GitHub logo next to the site title */
-.site-title {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-}
+  /* Inject GitHub logo next to the site title */
+  .site-title {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
 
-.site-title::before {
-  content: "" !important;
-  display: inline-block !important;
-  width: 20px !important;
-  height: 20px !important;
-  background-color: currentColor !important;
-  -webkit-mask-image: url("https://github.githubassets.com/favicons/favicon.svg");
-  mask-image: url("https://github.githubassets.com/favicons/favicon.svg");
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-}
+  .site-title::before {
+    content: "" !important;
+    display: inline-block !important;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: currentColor !important;
+    -webkit-mask-image: url("https://github.githubassets.com/favicons/favicon.svg");
+    mask-image: url("https://github.githubassets.com/favicons/favicon.svg");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+  }
 
   /* 1. Universal Text Link Hover Color & Center-Out Underline */
   .masthead__menu-item a,
@@ -80,11 +80,12 @@
     color: inherit !important;
     text-decoration: none !important;
   }
-  /* Uniform spacing for author sidebar profile items */
+  
   .author__urls li {
     margin-bottom: 0px !important;
   }
-.author__urls a {
+  
+  .author__urls a {
     color: inherit !important;
     text-decoration: none !important;
     display: inline !important;
@@ -97,7 +98,6 @@
     text-decoration: none !important;
   }
 
-  /* Apply the same hover opacity transition to the right sidebar */
   .home-sidebar {
     opacity: 0.75 !important;
     transition: opacity 0.2s ease-in-out !important;
@@ -105,6 +105,7 @@
   .home-sidebar:hover {
     opacity: 1 !important;
   }
+  
   @media (min-width: 64em) {
     .layout--archive,
     .initial-content {
@@ -122,7 +123,7 @@
       padding-left: 0 !important;
     }
   }
-/* Fix layout overlap for posts with an author profile sidebar */
+  
   .layout--single .sidebar {
     position: relative !important;
     float: left !important;
@@ -143,23 +144,323 @@
       width: 100% !important;
     }
   }
+
+  /* ========================================== */
+  /* 3. THE MASTHEAD (SMOOTH STICKY GLASS)      */
+  /* ========================================== */
+  
+  .masthead {
+    position: fixed !important; 
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background: rgba(15, 15, 15, 0.45) !important; 
+    backdrop-filter: blur(12px) !important;
+    -webkit-backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    z-index: 9999 !important;
+  }
+
+  .masthead__inner-wrap,
+  .masthead__menu,
+  .greedy-nav {
+    background: transparent !important; 
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ========================================== */
+  /* 4. GLOBAL PAGE SPACING                     */
+  /* ========================================== */
+  
+  #main {
+    padding-top: 90px !important; 
+  }
+
+  html {
+    scroll-behavior: smooth !important;
+  }
+
+  /* ========================================== */
+  /* 5. HERO IMAGE & CONTAINER FIXES            */
+  /* ========================================== */
+  
+  .page__hero--overlay {
+    margin-top: -90px !important; 
+    padding-top: 200px !important; 
+    padding-bottom: 100px !important;
+    -webkit-mask-image: none !important; 
+    mask-image: none !important;
+  }
+
+  .page__hero--overlay .wrapper {
+    background: rgba(15, 15, 15, 0.7) !important; 
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    padding: 32px !important; 
+    border-radius: 16px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.8) !important;
+    max-width: 600px !important; 
+    margin: 0 auto !important;
+    text-align: center !important; 
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+
+  .page__hero--overlay .page__title {
+    font-size: 2.2rem !important; 
+    font-weight: 800 !important;
+    color: #ffffff !important; 
+    margin-bottom: 12px !important;
+    text-shadow: none !important;
+    display: block !important;
+  }
+
+  .page__hero--overlay .page__hero-excerpt,
+  .page__hero--overlay .page__hero-excerpt p {
+    font-size: 1rem !important; 
+    line-height: 1.5 !important;
+    color: #d1d5db !important; 
+    margin: 0 auto 24px auto !important;
+    text-shadow: none !important;
+    display: block !important;
+  }
+
+  /* FORCING HERO BUTTONS SIDE-BY-SIDE */
+  .page__hero--overlay .wrapper p:has(.btn),
+  .page__hero--overlay .wrapper p:last-of-type {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  .page__hero--overlay .btn {
+    margin: 0 !important;
+    width: auto !important; 
+  }
+
+  /* ========================================== */
+  /* 6. HERO AVATAR STYLES                      */
+  /* ========================================== */
+  
+  .hero-avatar {
+    width: 90px !important; 
+    height: 90px !important;
+    border-radius: 50% !important;
+    border: 3px solid #ffffff !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+    margin-bottom: 16px !important;
+    object-fit: cover !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  }
+
+  .hero-avatar:hover {
+    transform: scale(1.05) !important;
+    box-shadow: 0 12px 32px rgba(255,255,255,0.15) !important;
+  }
+
+  /* ========================================== */
+  /* 7. UNIFIED MASTER BUTTON ENGINE            */
+  /* ========================================== */
+  
+  body a.btn-elegant,
+  body button.btn-elegant,
+  body .page__hero--overlay .btn,
+  body a.btn-whatsapp {
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 38px !important; 
+    padding: 0 16px !important; 
+    border-radius: 8px !important;
+    font-size: 14px !important; 
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    gap: 8px !important;
+    overflow: hidden !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.3s ease !important;
+    cursor: pointer !important;
+    z-index: 1 !important;
+    box-sizing: border-box !important;
+    text-align: center !important;
+    border: none !important;
+  }
+
+  /* Allow the CV download button to stay large */
+  body a.btn-large {
+    height: 50px !important;
+    font-size: 16px !important;
+    padding: 0 32px !important;
+  }
+
+  /* Button Background Colors */
+  body a.btn-elegant,
+  body button.btn-elegant,
+  body .page__hero--overlay .btn {
+    background: rgba(25, 25, 25, 0.8) !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  }
+
+  body a.btn-whatsapp {
+    background: #25D366 !important;
+    color: #ffffff !important; 
+  }
+
+  /* FontAwesome Shift Fix */
+  body a.btn-elegant *,
+  body button.btn-elegant *,
+  body .page__hero--overlay .btn *,
+  body a.btn-whatsapp * {
+    color: inherit !important;
+    position: relative !important;
+    z-index: 3 !important;
+    line-height: 1 !important; 
+    display: inline-flex !important;
+    align-items: center !important;
+    margin: 0 !important;
+    transition: color 0.3s ease !important;
+  }
+
+  /* ========================================== */
+  /* 8. BUTTON ANIMATION SWEEPS                 */
+  /* ========================================== */
+  
+  /* White Background Sweep */
+  body a.btn-elegant::before,
+  body button.btn-elegant::before,
+  body .page__hero--overlay .btn::before,
+  body a.btn-whatsapp::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+    background-color: #ffffff !important;
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 1 !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+
+  /* Slate Blue Underline Sweep (Elegant) */
+  body a.btn-elegant::after,
+  body button.btn-elegant::after,
+  body .page__hero--overlay .btn::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important;
+    height: 4px !important;
+    background-color: #52667a !important; 
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 2 !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+
+  /* Dark Green Underline Sweep (WhatsApp) */
+  body a.btn-whatsapp::after {
+    content: '' !important;
+    position: absolute !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important;
+    height: 4px !important;
+    background-color: #1ebe57 !important; 
+    transform: scaleX(0) !important;
+    transform-origin: center !important;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    z-index: 2 !important;
+    display: block !important;
+    pointer-events: none !important;
+  }
+
+  /* ========================================== */
+  /* 9. HOVER STATES                            */
+  /* ========================================== */
+  
+  body a.btn-elegant:hover::before,
+  body button.btn-elegant:hover::before,
+  body .page__hero--overlay .btn:hover::before,
+  body a.btn-elegant:hover::after,
+  body button.btn-elegant:hover::after,
+  body .page__hero--overlay .btn:hover::after,
+  body a.btn-whatsapp:hover::before,
+  body a.btn-whatsapp:hover::after {
+    transform: scaleX(1) !important;
+  }
+
+  body a.btn-elegant:hover,
+  body button.btn-elegant:hover,
+  body .page__hero--overlay .btn:hover,
+  body a.btn-whatsapp:hover {
+    transform: translateY(-3px) !important;
+    color: #000000 !important; 
+    text-decoration: none !important;
+  }
+
+  body a.btn-elegant:hover *,
+  body button.btn-elegant:hover *,
+  body .page__hero--overlay .btn:hover *,
+  body a.btn-whatsapp:hover * {
+    color: #000000 !important;
+  }
+
+  body a.btn-elegant:hover,
+  body button.btn-elegant:hover,
+  body .page__hero--overlay .btn:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
+  }
+
+  body a.btn-whatsapp:hover {
+    box-shadow: 0 8px 24px rgba(37,211,102,0.4) !important;
+  }
+
 </style>
+
 <script>
   document.addEventListener("DOMContentLoaded", function() {
+    // 1. Ensure external links open in a new tab safely
     const links = document.querySelectorAll("a");
     links.forEach(link => {
       const href = link.getAttribute("href");
       if (href && !href.startsWith("#") && !href.startsWith("javascript:") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
         try {
           const url = new URL(link.href, window.location.origin);
-          // If the link points to a different domain/origin, open in a new tab
           if (url.origin !== window.location.origin) {
             link.setAttribute("target", "_blank");
             link.setAttribute("rel", "noopener noreferrer");
           }
-        } catch (e) {
-          // Catch any malformed URLs safely
+        } catch (e) {}
+      }
+    });
+
+    // 2. HERO BUTTONS FIX (Forces them to behave exactly like profile cards)
+    const heroButtons = document.querySelectorAll('.page__hero--overlay .btn');
+    heroButtons.forEach(btn => {
+      // Remove native theme color classes that override our CSS
+      btn.classList.forEach(className => {
+        if (className.startsWith('btn--')) {
+          btn.classList.remove(className);
         }
+      });
+      
+      // Ensure they have our master class
+      btn.classList.add('btn-elegant');
+      
+      // Wrap plain text in a span so hover color transitions work perfectly
+      if (!btn.querySelector('span')) {
+        const rawText = btn.innerHTML;
+        btn.innerHTML = `<span>${rawText}</span>`;
       }
     });
   });
