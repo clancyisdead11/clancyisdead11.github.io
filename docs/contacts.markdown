@@ -247,7 +247,7 @@ header:
   /* --- STRICTLY UNIFORM CARD DIMENSIONS & TOP ALIGNMENT --- */
   .email-badge-card, .github-badge-card, .phone-badge-card, .linkedin-badge-card {
     width: 320px !important;
-    height: 300px !important;
+    height: 320px !important;
     margin: 0 !important;
     padding: 0 !important;
     display: flex !important;
@@ -264,7 +264,7 @@ header:
    .slider-item.linkedin-wrapper .badge-base,
    .slider-item.linkedin-wrapper .LI-profile-badge {
     width: 320px !important;
-    height: 300px !important;
+    height: 320px !important;
     flex-direction: column !important;
     margin: 0 !important;
     padding: 0 !important;

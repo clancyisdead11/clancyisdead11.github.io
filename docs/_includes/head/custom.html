@@ -707,7 +707,145 @@
       display: none !important;
     }
   }
+
+  /* --- HIDE SIDEBAR SCROLLBAR --- */
+  .sidebar,
+  .author__urls-wrapper {
+    -ms-overflow-style: none !important;  /* IE and Edge */
+    scrollbar-width: none !important;     /* Firefox */
+  }
+
+  .sidebar::-webkit-scrollbar,
+  .author__urls-wrapper::-webkit-scrollbar {
+    display: none !important;             /* Chrome, Safari, and Opera */
+  }
 </style>
+<!-- ========================================== -->
+<!-- DYNAMIC POST TAGS (DESKTOP & MOBILE)       -->
+<!-- ========================================== -->
+{% if page.layout == 'single' and page.tags.size > 0 %}
+<style>
+  /* Base Tag Styles */
+  .portfolio-tags-wrapper {
+    width: 100%;
+    clear: both;
+  }
+  
+  .portfolio-tags-title {
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    color: #888888 !important;
+    margin-bottom: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.05em;
+  }
+  
+  .portfolio-tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .portfolio-tag-pill {
+    background: #111111;
+    border: 1px solid #333333;
+    color: #a1a1aa;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-block;
+  }
+  
+  .portfolio-tag-pill:hover {
+    background: #1a1a1a;
+    border-color: #ff0086; 
+    color: #ffffff;
+    transform: translateY(-2px);
+  }
+
+  /* Desktop Placement (Sidebar) */
+  .tags-desktop { 
+    display: block; 
+    margin-top: 32px !important;
+    padding-top: 24px !important;
+    border-top: 1px solid #2a2a2a;
+  }
+  
+  /* Mobile Placement (Bottom of Post) */
+  .tags-mobile { 
+    display: none; 
+    margin-top: 56px !important;    
+    margin-bottom: 56px !important; 
+    padding-top: 5px !important;
+  }
+
+  /* --- DESKTOP SIDEBAR SCROLL FIX --- */
+  @media (min-width: 769px) {
+    /* 1. Removes the internal scrollbar and height limit from the author profile */
+    .author__urls-wrapper {
+      max-height: none !important;
+      overflow: visible !important;
+    }
+
+    /* 2. Un-sticks the entire sidebar so it scrolls naturally with the page */
+    .layout--single .sidebar,
+    .sidebar.sticky {
+      position: relative !important;
+      top: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      transform: none !important;
+    }
+  }
+
+  /* Display Logic Check */
+  @media (max-width: 768px) {
+    .tags-desktop { display: none !important; }
+    .tags-mobile { display: block !important; }
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Safely pull the array of tags from the Jekyll post front matter
+    const postTags = {{ page.tags | jsonify }};
+
+    if (postTags && postTags.length > 0) {
+      // Build the HTML for the tags
+      let tagsHtml = `
+        <h4 class="portfolio-tags-title"><i class="fas fa-tags" style="margin-right: 6px;"></i> Tags</h4>
+        <div class="portfolio-tags-list">
+      `;
+      postTags.forEach(tag => {
+        tagsHtml += `<span class="portfolio-tag-pill">${tag}</span>`;
+      });
+      tagsHtml += `</div>`;
+
+      // 1. Inject into Desktop Sidebar (OUTSIDE the scrollable wrapper)
+      const sidebar = document.querySelector('.sidebar');
+      if (sidebar) {
+        const desktopTags = document.createElement('div');
+        desktopTags.className = 'portfolio-tags-wrapper tags-desktop';
+        desktopTags.innerHTML = tagsHtml;
+        // Appends to the very bottom of the sidebar container, bypassing the restricted box
+        sidebar.appendChild(desktopTags);
+      }
+
+      // 2. Inject into Mobile View (Right before the Share Options)
+      const shareSection = document.querySelector('.page__share');
+      if (shareSection) {
+        const mobileTags = document.createElement('div');
+        mobileTags.className = 'portfolio-tags-wrapper tags-mobile';
+        mobileTags.innerHTML = tagsHtml;
+        shareSection.parentNode.insertBefore(mobileTags, shareSection);
+      }
+    }
+  });
+</script>
+{% endif %}
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
