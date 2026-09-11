@@ -3,7 +3,7 @@ layout: single
 classes: wide
 title: "CFD and Wind Tunnel Workshop at Dallara Academy"
 date: 2026-06-12
-tags: [Aerodynamics, CFD, Wind Tunnel, Formula 3, Dallara Academy]
+tags: [Applied Aerodynamics, Computational Fluid Dynamics (CFD), Wind Tunnel Testing, Aeromapping, Sensitivity Analysis]
 header:
   image: /assets/images/CFD-placeholder.jpg
   teaser: /assets/images/CFD-placeholder.jpg 

@@ -721,6 +721,116 @@
   .author__urls-wrapper::-webkit-scrollbar {
     display: none !important;             /* Chrome, Safari, and Opera */
   }
+  /* ========================================== */
+  /* 12. PREMIUM FLOATING GLASS DROPDOWN        */
+  /* ========================================== */
+
+  /* 1. Closed State: Faded, scaled down, and shifted up */
+  .greedy-nav .hidden-links.hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    transform: translateY(-10px) scale(0.95) !important;
+    pointer-events: none !important;
+  }
+
+  /* 2. The Glass Card */
+  .greedy-nav .hidden-links {
+    position: absolute !important;
+    top: 70px !important; 
+    right: 16px !important; 
+    
+    /* Highly Adaptable Sizing */
+    min-width: 220px !important;
+    width: max-content !important;
+    max-width: calc(100vw - 32px) !important; /* Prevents it from touching the screen edges */
+    
+    background: rgba(24, 24, 27, 0.85) !important; /* Deep dark zinc */
+    backdrop-filter: blur(24px) !important;
+    -webkit-backdrop-filter: blur(24px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5) !important;
+    
+    padding: 8px !important; /* Inner padding to hold the link 'pills' */
+    z-index: 9998 !important;
+
+    /* Open State: Smoothly snaps into full size */
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(0) scale(1) !important;
+    transform-origin: top right !important; /* Animates outward from the hamburger icon */
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+  }
+
+  /* Remove Jekyll's native arrows */
+  .greedy-nav .hidden-links::before,
+  .greedy-nav .hidden-links::after {
+    display: none !important; 
+  }
+
+  /* 3. Link Wrapper & Formatting */
+  .greedy-nav .hidden-links ul {
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important; /* Spacing between the links */
+  }
+
+  .greedy-nav .hidden-links li {
+    display: block !important;
+    border: none !important;
+    margin: 0 !important;
+  }
+
+  .greedy-nav .hidden-links a {
+    display: block !important;
+    padding: 14px 20px !important;
+    font-size: 16px !important; 
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    color: #e4e4e7 !important;
+    text-decoration: none !important;
+    border-radius: 12px !important; /* Rounds the hover highlight */
+    transition: all 0.2s ease !important;
+    text-align: left !important; /* Left alignment looks much cleaner inside a card */
+  }
+
+  /* 4. Modern Hover/Active State */
+  .greedy-nav .hidden-links a:hover,
+  .greedy-nav .hidden-links a:active {
+    background-color: rgba(255, 0, 134, 0.15) !important; 
+    color: #ff0086 !important;
+  }
+
+  /* Keep toggle button above the menu */
+  .greedy-nav button.greedy-nav__toggle {
+    z-index: 99999 !important;
+    position: relative !important;
+  }
+  /* ========================================== */
+  /* 13. SEARCH OVERLAY VISIBILITY FIX          */
+  /* ========================================== */
+
+  .search-content {
+    /* Pushes the search input down so it clears the sticky masthead */
+    padding-top: 90px !important; 
+    position: relative !important;
+    z-index: 9997 !important;
+  }
+
+  /* Ensures the search input field and results look clean */
+  .search-content .search-input {
+    border-radius: 8px !important;
+    background-color: #111111 !important;
+    color: #e4e4e7 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .search-content .search-input:focus {
+    border-color: #ff0086 !important;
+  }
 </style>
 <!-- ========================================== -->
 <!-- DYNAMIC POST TAGS (DESKTOP & MOBILE)       -->
@@ -905,3 +1015,19 @@
     }
   });
 </script>
+<!-- ========================================== -->
+<!-- 14. MATHJAX LATEX RENDERING ENGINE         -->
+<!-- ========================================== -->
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      tags: 'ams' /* Enables equation numbering */
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

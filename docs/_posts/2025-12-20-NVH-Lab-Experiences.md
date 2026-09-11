@@ -2,7 +2,7 @@
 layout: single
 title: "NVH Lab Experiences: F430 Modal Analysis & V8 Vibration Tracking"
 date: 2025-12-20
-tags: [NVH, Simcenter Testlab, Modal Analysis, Order Tracking, LMS SCADAS]
+tags: [Experimental Modal Analysis, Order Tracking, Simcenter Testlab, LMS SCADAS, Data Acquisition]
 classes: wide
 header:
   image: /assets/images/waterfall.png

@@ -3,7 +3,7 @@ layout: single
 classes: wide
 title: "Porsche 911 GT3RS DRS and Front Flaps Hydraulic Redesign"
 date: 2026-09-11
-tags: [Fluid Power, OpenModelica, MSC ADAMS, Active Aerodynamics, Porsche]
+tags: [Active Aerodynamics, Fluid Power Systems, OpenModelica, MSC ADAMS, Lumped Parameter Modeling]
 header:
   image: /assets/images/Porsche-placeholder.png
   teaser: /assets/images/Porsche-placeholder.png 

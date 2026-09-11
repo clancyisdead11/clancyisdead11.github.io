@@ -3,7 +3,7 @@ layout: single
 classes: wide
 title: "Demystifying Brake Squeal: Theoretical Models and Numerical Analysis"
 date: 2024-09-05
-tags: [NVH, Brake Squeal, Finite Element Analysis, Complex Eigenvalue Analysis, Vehicle Dynamics]
+tags: [NVH, Finite Element Analysis (FEA), Complex Eigenvalue Analysis (CEA), Transient Dynamics Analysis (TDA)]
 header:
   image: /assets/images/Brake-Squeal.png
   teaser: /assets/images/Brake-Squeal.png
