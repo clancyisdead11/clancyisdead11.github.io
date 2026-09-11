@@ -2,7 +2,7 @@
 layout: single
 classes: wide
 title: "Cruise Control Design"
-date: 2026-09-11
+date: 2025-12-15
 tags: [Control Theory, MATLAB, Root Locus, Vehicle Dynamics, PID Controller]
 header:
   image: /assets/images/cruise-control-placeholder.png

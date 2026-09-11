@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "NVH Lab Experiences: F430 Modal Analysis & V8 Vibration Tracking"
-date: 2026-09-11
+date: 2025-12-20
 tags: [NVH, Simcenter Testlab, Modal Analysis, Order Tracking, LMS SCADAS]
 classes: wide
 header:

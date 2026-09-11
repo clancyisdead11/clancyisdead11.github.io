@@ -1,7 +1,7 @@
 ---
 layout: single
 title: "Decoupled Suspensions for a Formula SAE Car"
-date: 2026-09-10
+date: 2026-04-24
 tags: [Vehicle Dynamics, MSC ADAMS Car, Topology Optimization, SLM Titanium]
 classes: wide
 header:
