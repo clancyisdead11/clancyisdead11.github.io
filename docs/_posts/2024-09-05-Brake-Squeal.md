@@ -3,7 +3,7 @@ layout: single
 classes: wide
 title: "Demystifying Brake Squeal: Theoretical Models and Numerical Analysis"
 date: 2024-09-05
-tags: [NVH, Finite Element Analysis (FEA), Complex Eigenvalue Analysis (CEA), Transient Dynamics Analysis (TDA)]
+tags: [NVH, Finite FEA, Complex Eigenvalue Analysis (CEA), Transient Dynamics Analysis (TDA)]
 header:
   image: /assets/images/Brake-Squeal.png
   teaser: /assets/images/Brake-Squeal.png
@@ -21,7 +21,10 @@ Historically, researchers attempted to explain brake squeal through models such 
 *   As system parameters like friction or brake pressure change, the eigenfrequencies of two separate vibrating modes can merge.
 *   At this transition point, the real parts of the complex eigenvalues split; one mode develops a positive real part, rendering it unstable and resulting in self-excited limit-cycle oscillations.
 
-
+<figure style="text-align: center;">
+  <img src="/assets/images/bifurcation.png" alt="CFD Pressure Contour">
+  <figcaption><em>Fig. 1 - Mode Coupling Phenomenon</em></figcaption>
+</figure>
 
 ### Analytical Modeling of Instability
 
@@ -36,7 +39,12 @@ Given the complexity of a real automotive braking assembly, analytical models mu
 #### 1. Complex Eigenvalue Analysis (CEA)
 CEA evaluates the stability of the FEA model by linearizing the system at a static steady state and solving for its complex eigenvalues. The system's damping matrix and external friction forces generate imaginary eigenvalues; any eigenvalue exhibiting a positive real part explicitly identifies a mode of vibration that is prone to instability and squealing. 
 
-> **Engineering Insight:** While highly efficient for identifying problematic frequencies, CEA is limited by its inability to capture fully non-linear behaviors. It relies on linearizing a fundamentally non-linear friction model, which can occasionally mask complex interactions.
+While highly efficient for identifying problematic frequencies, CEA is limited by its inability to capture fully non-linear behaviors. It relies on linearizing a fundamentally non-linear friction model, which can occasionally mask complex interactions.
+
+<figure style="text-align: center;">
+  <img src="/assets/images/cea.png" alt="CFD Pressure Contour">
+  <figcaption><em>Fig. 2 - Complex Eigenvalues Analysis</em></figcaption>
+</figure>
 
 #### 2. Transient Dynamics Analysis (TDA)
 Because friction is inherently non-linear and time-dependent, TDA is utilized to simulate the exact operating conditions from an initial state to a steady limit-cycle. While computationally expensive, TDA detects intermittent self-excited vibrations and bi-stable behaviors that linear CEA methodologies might fail to identify.

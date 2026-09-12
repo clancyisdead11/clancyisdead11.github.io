@@ -31,11 +31,16 @@ The analysis isolated several key physical deformation modes:
 *   **~70 Hz:** Localized deformation mode concentrated in the rear structural section.
 *   **~95 Hz:** Higher-order torsional mode involving the entire chassis architecture.
 
-
+<figure style="margin: 24px auto; text-align: center;">
+  <img src="/assets/images/figure20.jpg" alt="Mode 2" style="border-radius: 8px; margin: 0 auto; max-width: 90%;">
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em>Fig. 1 - Mode 2 in chassis wireframe and MAC</em>
+  </figcaption>
+</figure>
 
 ### Part 2: Order Tracking & Vibrational Analysis of a Supercharged V8
 
-The second campaign focused on the operational vibration signature of a Range Rover equipped with a supercharged V8 internal combustion engine[cite: 14]. The vehicle was tested in neutral gear to isolate engine-specific vibrations from drivetrain torque loads.
+The second campaign focused on the operational vibration signature of a Range Rover equipped with a supercharged V8 internal combustion engine. The vehicle was tested in neutral gear to isolate engine-specific vibrations from drivetrain torque loads.
 
 Due to engine block temperatures exceeding the safe operating limits of the sensors and standard structural adhesives, the tri-axial PCB Piezotronics Shear Accelerometer was mounted on an adjacent structural bracket and mapped to the global vehicle coordinate system.
 
@@ -43,4 +48,11 @@ Due to engine block temperatures exceeding the safe operating limits of the sens
 *   **RPM Extraction:** Because a direct tachometer or encoder could not be installed, we performed a manual RPM extraction by tracking the 1st engine order within the frequency-vs-time waterfall plot.
 *   **Order-Domain Transformation:** This extracted RPM profile allowed us to transform the data from the frequency domain into the order domain, converting engine-related excitations into vertical lines and structural resonances into distinct hyperbolic curves.
 
-> **Engineering Insight:** The order tracking confirmed that the 4th engine order was the primary vibration contributor, aligning with the theoretical firing frequency of a 4-stroke V8 architecture. The order-based waterfall plot also isolated a structural resonance intersecting the engine harmonics. Future mitigation strategies could involve modal characterization of the mounting bracket to "detune" its natural frequency away from the operating range.
+The order tracking confirmed that the 4th engine order was the primary vibration contributor, aligning with the theoretical firing frequency of a 4-stroke V8 architecture. The order-based waterfall plot also isolated a structural resonance intersecting the engine harmonics. Future mitigation strategies could involve modal characterization of the mounting bracket to "detune" its natural frequency away from the operating range.
+
+<figure style="margin: 24px auto; text-align: center;">
+  <img src="/assets/images/figure8.png" alt="Diagrams" style="border-radius: 8px; margin: 0 auto; max-width: 90%;">
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em>Fig. 2 - Frequency Waterfall vs Order Waterfall plots</em>
+  </figcaption>
+</figure>

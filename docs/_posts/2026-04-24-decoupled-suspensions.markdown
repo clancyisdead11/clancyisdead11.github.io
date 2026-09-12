@@ -11,7 +11,7 @@ header:
 
 Conventional Formula SAE suspension systems link heave and roll stiffness, restricting the freedom to optimize vehicle setup for specific track conditions. This project outlines the conceptualization, kinematic validation, and detailed design of a mechanically decoupled rear suspension system for the University of Modena's M24-LH prototype.
 
-Developed alongside Francesco De Bona, Giorgio Flamini, Giorgia Terzi, and Giulia Terzi, this architecture allows roll stiffness to be adjusted independently of heave stiffness.
+Developed alongside colleagues Francesco De Bona, Giorgio Flamini, Giorgia Terzi, and Giulia Terzi, this architecture allows roll stiffness to be adjusted independently of heave stiffness.
 
 ### Conceptual Architecture & Kinematics
 
@@ -21,13 +21,21 @@ To ensure the new geometry maintained baseline consistency with the existing veh
 *   **Virtual Validation:** We utilized MSC ADAMS Car to define new rocker hard points and run parallel and opposite wheel travel simulations.
 *   **Heave & Roll Independence:** The simulations confirmed mechanical separation. During a 25 mm opposite wheel travel (roll) simulation, the heave spring experienced negligible deflection, while the roll spring absorbed the loads linearly.
 
-
+<figure style="text-align: center;">
+  <img src="/assets/images/Heave_vs_Roll_comp.png" alt="Description of the image">
+  <figcaption><em>Fig. 1- Roll vs. Heave springs deflection and forces</em></figcaption>
+</figure>
 
 ### Solving the Roll Spring Extension Problem
 
 A primary kinematic challenge in moving away from a traditional torsional anti-roll bar (ARB) is that a dedicated roll spring is typically forced into extension during cornering. Loading a spring in extension requires specific mounting hardware and often introduces non-linear responses.
 
-> **Engineering Insight:** To resolve the extension issue, we engineered a custom unidirectional lever mechanism utilizing an antisymmetric interlocking geometry consisting of rods, flanges, and sliding plates. When the left and right rockers move in opposite directions, the linkage engages the central spring holder from both ends simultaneously, ensuring the roll spring operates exclusively in compression regardless of the chassis roll direction.
+To resolve the extension issue, we engineered a custom unidirectional lever mechanism utilizing an antisymmetric interlocking geometry consisting of rods, flanges, and sliding plates. When the left and right rockers move in opposite directions, the linkage engages the central spring holder from both ends simultaneously, ensuring the roll spring operates exclusively in compression regardless of the chassis roll direction.
+
+<figure style="text-align: center;">
+  <img src="/assets/images/roll3.jpg" alt="Description of the image">
+  <figcaption><em>Fig. 2 - CAD render of the unidirectional lever mechanism</em></figcaption>
+</figure>
 
 ### Topology Optimization & Additive Manufacturing
 
@@ -38,7 +46,15 @@ We transitioned to Generative Design, targeting Additive Manufacturing (Selectiv
 *   **Right Rocker:** Achieved an 85.73% mass reduction, also resulting in a final optimized mass of 0.3 kg.
 *   **Structural Integrity:** Finite Element Analysis (FEA) confirmed that maximum Von Mises stresses remained around 42.3 MPa, providing an adequate safety factor against the 805 MPa yield strength of the titanium alloy.
 
-
+<figure style="margin: 24px auto; text-align: center;">
+  <div style="display: flex; gap: 16px; justify-content: center; align-items: center;">
+    <img src="/assets/images/topology4.png" alt="Left Image" style="border-radius: 8px; margin: 0; max-width: 48%">
+    <img src="/assets/images/topology13.png" alt="Right Image" style="border-radius: 8px; margin: 0; max-width:48%">
+  </div>
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em> Fig. 3 - Left: Left Rocker von Mises Stresses. Right: Right Rocker von Mises Stresses.</em>
+  </figcaption>
+</figure>
 
 ### Assembly & Tolerance Stack-ups
 

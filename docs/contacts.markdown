@@ -7,17 +7,12 @@ header:
   overlay_filter: ~
 ---
 
-<!-- 1. MAIN CONTAINER -->
+<!-- main wrap -->
 <div class="contacts-page-wrapper" style="width: 100% !important;">
   
-  <!-- ========================================== -->
-  <!-- CV CALL TO ACTION (BLURRED PREVIEW)        -->
-  <!-- ========================================== -->
+  <!-- cv download link -->
   <div class="cv-cta-container">
-    <!-- Blurred Background Image -->
     <div class="cv-blurred-bg"></div>
-    
-    <!-- Overlay Content -->
     <div class="cv-overlay-content">
       <p class="cv-subphrase">Download my complete CV for a detailed look at my engineering experience, technical skills, and academic projects.</p>
       
@@ -27,26 +22,34 @@ header:
     </div>
   </div>
 
-  <!-- ========================================== -->
-  <!-- HORIZONTAL CAROUSEL WITH SIDE ARROWS       -->
-  <!-- ========================================== -->
+  <!-- contacts carousel -->
   <div class="carousel-container">
-    <!-- Left Arrow Button -->
     <button class="carousel-arrow left-arrow" onclick="scrollCarousel(-1)">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
     </button>
 
-    <!-- Scrollable Cards Track -->
     <div class="cards-slider" id="cardsSlider">
       
-      <!-- 1. LinkedIn Card -->
-      <div class="slider-item linkedin-wrapper" id="linkedin-card-container">
-        <div class="badge-base LI-profile-badge" data-locale="it_IT" data-size="large" data-theme="dark" data-type="HORIZONTAL" data-vanity="andrea-solfrizzi-b5b152292" data-version="v1">
-          <a class="badge-base__link LI-simple-link" href="https://it.linkedin.com/in/andrea-solfrizzi-b5b152292?trk=profile-badge"></a>
+      <!-- 1. LinkedIn Card (Custom Future-Proof Version) -->
+      <div class="slider-item linkedin-badge-card">
+        <div class="linkedin-badge-header">
+          <span class="linkedin-badge-title">LinkedIn</span>
+          <i class="fa-brands fa-linkedin linkedin-badge-icon" style="color: #ffffff;"></i>
+        </div>
+        <div class="linkedin-badge-body">
+          <img src="/assets/images/io.png" alt="Andrea Solfrizzi" class="linkedin-badge-pic">
+          <div class="card-text-content">
+            <h3 class="linkedin-badge-name">Andrea Solfrizzi</h3>
+            <p class="linkedin-badge-bio">MSc student in Advanced Automotive Engineering - High Performance Car Design @ MUNER</p>
+            <span class="linkedin-badge-uni">Motorvehicle University of Emilia-Romagna</span>
+          </div>
+          <a href="https://www.linkedin.com/in/andrea-solfrizzi-b5b152292/" target="_blank" class="btn-elegant" style="width: 100%; margin-top: auto;">
+            <span>View Profile</span>
+          </a>
         </div>
       </div>
 
-      <!-- 2. Email Card -->
+      <!-- email card -->
       <div class="slider-item email-badge-card" id="email-contact-trigger" style="cursor: pointer;">
         <div class="email-badge-header">
           <span class="email-badge-title">Email</span>
@@ -62,7 +65,7 @@ header:
         </div>
       </div>
 
-       <!-- 3. Phone / WhatsApp Card -->
+       <!-- phone card -->
        <div class="slider-item phone-badge-card">
         <div class="phone-badge-header">
           <span class="phone-badge-title">Phone / WhatsApp</span>
@@ -77,8 +80,8 @@ header:
             </svg>
           </div>
           <div class="card-text-content">
-            <h3 class="phone-badge-name">+39 389 646 1443</h3>
-            <p class="phone-badge-bio">Available for networking, engineering opportunities, and quick chats.</p>
+            <h3 class="phone-badge-name">Andrea Solfrizzi</h3>
+            <p class="phone-badge-bio">Available for networking and chats</p>
           </div>
           <div class="phone-actions" style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
             <a href="tel:+393896461443" class="btn-elegant" style="width: 100%;"><span>Standard Call</span></a>
@@ -89,7 +92,7 @@ header:
         </div>
       </div>
 
-      <!-- 4. GitHub Card -->
+      <!-- github card -->
       <div class="slider-item github-badge-card" id="github-contact-trigger" style="cursor: pointer;">
         <div class="github-badge-header">
           <span class="github-badge-title">GitHub</span>
@@ -107,7 +110,6 @@ header:
       </div>
     </div>
 
-    <!-- Right Arrow Button -->
     <button class="carousel-arrow right-arrow" onclick="scrollCarousel(1)">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
     </button>
@@ -115,255 +117,67 @@ header:
 </div>
 
 
-<!-- 2. CSS STYLES -->
+<!-- css -->
 <style>
-  .layout--single #main,
-  .layout--single .page,
-  .layout--single .page__inner-wrap {
-    max-width: 100% !important;
-    width: 100% !important;
-    margin: 0 !important;
-    padding-left: 0 !important;
-    padding-right: 0 !important;
+  .layout--single #main, .layout--single .page, .layout--single .page__inner-wrap {
+    max-width: 100% !important; width: 100% !important; margin: 0 !important; padding-left: 0 !important; padding-right: 0 !important;
   }
+  .page__title { padding-top: 0.5rem; padding-left: 1.5rem; pointer-events: none; }
+  .contacts-page-wrapper { padding-left: 1.5rem; padding-right: 1.5rem; box-sizing: border-box; }
 
-  .page__title {
-    padding-top: 0.5rem;
-    padding-left: 1.5rem;
-    pointer-events: none;
-  }
-
-  .contacts-page-wrapper {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    box-sizing: border-box;
-  }
-
-  /* --- CV BLURRED CTA STYLES --- */
+  /* cv banner */
   .cv-cta-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    height: 400px; 
-    margin: 0 auto 40px auto;
-    background-color: #111;
-    border: 1px solid #2a2a2a;
-    border-radius: 12px;
-    overflow: hidden;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    position: relative; width: 100%; max-width: 1000px; height: 400px; margin: 0 auto 40px auto; background-color: #111;
+    border: 1px solid #2a2a2a; border-radius: 12px; overflow: hidden; font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   }
-
   .cv-blurred-bg {
-    position: absolute;
-    top: -20px; right: -20px; bottom: -20px; left: -20px; 
+    position: absolute; top: -20px; right: -20px; bottom: -20px; left: -20px; 
     background-image: url('https://drive.google.com/thumbnail?id=1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl&sz=w1000');
-    background-size: cover;
-    background-position: top center;
-    filter: blur(12px) brightness(0.35); 
-    z-index: 1;
+    background-size: cover; background-position: top center; filter: blur(12px) brightness(0.35); z-index: 1;
   }
-
   .cv-overlay-content {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 32px;
-    text-align: center;
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 32px; text-align: center;
   }
+  .cv-subphrase { color: #d1d5db; font-size: 16px; max-width: 600px; margin: 0 0 32px 0; line-height: 1.5; text-shadow: 0 1px 3px rgba(0,0,0,0.5); }
 
-  .cv-subphrase {
-    color: #d1d5db;
-    font-size: 16px;
-    max-width: 600px;
-    margin: 0 0 32px 0;
-    line-height: 1.5;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  }
-
-  /* --- CAROUSEL WRAPPER & ARROWS --- */
-  .carousel-container {
-    position: relative;
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto 32px auto;
-  }
-
+  /* slider */
+  .carousel-container { position: relative; width: 100%; max-width: 1000px; margin: 0 auto 32px auto; }
   .carousel-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(20, 20, 20, 0.85);
-    color: #ffffff;
-    border: 1px solid #333;
-    border-radius: 50%;
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    z-index: 10;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(20, 20, 20, 0.85); color: #ffffff;
+    border: 1px solid #333; border-radius: 50%; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; z-index: 10; transition: background-color 0.2s ease, transform 0.2s ease; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
   }
-
-  .carousel-arrow:hover {
-    background-color: #3f4e5d;
-    transform: translateY(-50%) scale(1.05);
-  }
-
-  .left-arrow { left: -22px; }
-  .right-arrow { right: -22px; }
-
-  /* --- HORIZONTAL SLIDER TRACK --- */
+  .carousel-arrow:hover { background-color: #3f4e5d; transform: translateY(-50%) scale(1.05); }
+  .left-arrow { left: -22px; } .right-arrow { right: -22px; }
   .cards-slider {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start !important;
-    gap: 24px;
-    overflow-x: auto;
-    padding: 4px 0 16px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    display: flex; flex-direction: row; align-items: flex-start !important; gap: 24px; overflow-x: auto;
+    padding: 4px 0 16px 0; scroll-snap-type: x mandatory; scrollbar-width: none;
   }
+  .cards-slider::-webkit-scrollbar { display: none; }
+  .slider-item { flex: 0 0 320px !important; width: 320px !important; margin: 0 !important; padding: 0 !important; scroll-snap-align: start; }
 
-  .cards-slider::-webkit-scrollbar {
-    display: none;
-  }
-
-  .slider-item {
-    flex: 0 0 320px !important;
-    width: 320px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    scroll-snap-align: start;
-  }
-
-  /* --- STRICTLY UNIFORM CARD DIMENSIONS & TOP ALIGNMENT --- */
+  /* cards */
   .email-badge-card, .github-badge-card, .phone-badge-card, .linkedin-badge-card {
-    width: 320px !important;
-    height: 320px !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    background-color: #000000 !important;
-    border: 1px solid #2a2a2a !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
-    box-sizing: border-box !important;
+    width: 320px !important; height: 320px !important; margin: 0 !important; padding: 0 !important; display: flex !important; flex-direction: column !important;
+    background-color: #000000 !important; border: 1px solid #2a2a2a !important; border-radius: 8px !important; overflow: hidden !important; box-sizing: border-box !important;
   }
-  
-   .slider-item.linkedin-wrapper,
-   .slider-item.linkedin-wrapper .badge-base,
-   .slider-item.linkedin-wrapper .LI-profile-badge {
-    width: 320px !important;
-    height: 320px !important;
-    flex-direction: column !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    background-color: #000000 !important;
-    border: 1px solid #2a2a2a !important;
-    border-radius: 8px !important;
-    overflow: hidden !important;
-    box-sizing: border-box !important;
-   }
-   
-   .slider-item.linkedin-wrapper iframe {
-    margin-top: -33px !important;
-    margin-left: -2px
-  }
-  
-  .email-badge-header, .github-badge-header, .phone-badge-header, .linkedin-badge-header {
-    background-color: #3f4e5d !important;
-    padding: 10px 16px !important;
-    display: flex !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    color: #ffffff !important;
-    flex-shrink: 0 !important;
-  }
-  
+  .email-badge-header, .github-badge-header, .phone-badge-header, .linkedin-badge-header { background-color: #3f4e5d !important; padding: 10px 16px !important; display: flex !important; justify-content: space-between !important; align-items: center !important; color: #ffffff !important; flex-shrink: 0 !important; }
   .email-badge-title, .github-badge-title, .phone-badge-title, .linkedin-badge-title { font-weight: 600; font-size: 16px; }
   .email-badge-icon, .github-badge-icon, .linkedin-badge-icon { fill: #ffffff; }
-
-  .email-badge-body, .github-badge-body, .phone-badge-body, .linkedin-badge-body {
-    padding: 16px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    flex-grow: 1 !important;
-  }
-
-  .email-badge-pic, .github-badge-pic, .linkedin-badge-pic {
-    width: 56px !important;
-    height: 56px !important;
-    border-radius: 50% !important;
-    object-fit: cover !important;
-    margin-bottom: 12px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .card-text-content {
-    flex-grow: 1 !important;
-  }
-
-  .email-badge-name, .github-badge-name, .phone-badge-name, .linkedin-badge-name {
-    margin: 0 0 4px 0 !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    color: #ffffff !important;
-  }
-
-  .email-badge-bio, .github-badge-bio, .phone-badge-bio, .linkedin-badge-bio {
-    margin: 0 0 8px 0 !important;
-    font-size: 13px !important;
-    color: #d1d5db !important;
-    line-height: 1.4 !important;
-  }
-
-  /* Shared styling for secondary info texts */
-  .email-badge-uni, .github-badge-username, .linkedin-badge-uni {
-    display: block !important;
-    margin: 0 0 8px 0 !important;
-    font-size: 12px !important;
-    color: #d1d5db !important;
-    text-decoration: none !important;
-  }
-
-  .email-badge-uni, .linkedin-badge-uni {
-    text-decoration: underline !important;
-  }
-  .email-badge-uni:hover, .linkedin-badge-uni:hover { 
-    color: #ffffff !important; 
-    text-decoration: underline !important; 
-  }
-
-  /* --- PHONE / WHATSAPP SPECIFIC STYLES --- */
+  .email-badge-body, .github-badge-body, .phone-badge-body, .linkedin-badge-body { padding: 16px !important; display: flex !important; flex-direction: column !important; flex-grow: 1 !important; }
+  .email-badge-pic, .github-badge-pic, .linkedin-badge-pic { width: 56px !important; height: 56px !important; border-radius: 50% !important; object-fit: cover !important; margin-bottom: 12px !important; flex-shrink: 0 !important; }
+  .card-text-content { flex-grow: 1 !important; }
+  .email-badge-name, .github-badge-name, .phone-badge-name, .linkedin-badge-name { margin: 0 0 4px 0 !important; font-size: 16px !important; font-weight: 600 !important; color: #ffffff !important; }
+  .email-badge-bio, .github-badge-bio, .phone-badge-bio, .linkedin-badge-bio { margin: 0 0 8px 0 !important; font-size: 13px !important; color: #d1d5db !important; line-height: 1.4 !important; }
+  .email-badge-uni, .github-badge-username, .linkedin-badge-uni { display: block !important; margin: 0 0 8px 0 !important; font-size: 12px !important; color: #d1d5db !important; text-decoration: none !important; }
+  .email-badge-uni, .linkedin-badge-uni { text-decoration: underline !important; }
+  .email-badge-uni:hover, .linkedin-badge-uni:hover { color: #ffffff !important; text-decoration: underline !important; }
   .phone-badge-body { text-align: center !important; }
-  .phone-avatar-placeholder {
-    width: 56px !important;
-    height: 56px !important;
-    border-radius: 50% !important;
-    background-color: #25D366 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto 12px auto !important;
-    flex-shrink: 0 !important;
-  }
+  .phone-avatar-placeholder { width: 56px !important; height: 56px !important; border-radius: 50% !important; background-color: #25D366 !important; display: flex !important; align-items: center !important; justify-content: center !important; margin: 0 auto 12px auto !important; flex-shrink: 0 !important; }
   .phone-badge-name { font-size: 18px !important; letter-spacing: 0.5px !important; }
-
 </style>
 
-
-<!-- 3. JAVASCRIPT -->
-<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+<!-- js scripts -->
 <script>
   function scrollCarousel(direction) {
     const slider = document.getElementById('cardsSlider');
@@ -387,8 +201,7 @@ header:
   });
 
   function checkIOSAndSwapLinkedIn() {
-    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || 
-                  (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
     if (isIOS) {
       const container = document.getElementById('linkedin-card-container');
       if (container) {

@@ -19,7 +19,15 @@ Before defining the fluid power circuits, the mechanical loads acting on the act
 *   **Rear DRS:** The linkage was reverse-engineered to evaluate the mechanical advantage that reduces aerodynamic loads on the piston. The wing profiles were approximated using EPPLER 423 and NACA 6412 airfoils, with transient forces during angular displacement curve-fitted via MATLAB.
 *   **Front Flaps:** Modeled as a grounded rocker utilizing a NACA 4412 airfoil profile. The angular velocity was set to 266.667°/s to ensure the flaps achieve full deployment across their 80° range in under 0.3 seconds.
 
-
+<figure style="margin: 24px auto; text-align: center;">
+  <div style="display: flex; gap: 16px; justify-content: center; align-items: center;">
+    <img src="/assets/images/drs-adams-model.png" alt="DRS Kinematic Model in MSC ADAMS" style="width: 48%; border-radius: 8px; margin: 0;">
+    <img src="/assets/images/drs-piston-force.png" alt="Estimated Piston Force vs Angle" style="width: 48%; border-radius: 8px; margin: 0;">
+  </div>
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em>Fig. 1 - Left: The DRS kinematic model constructed in MSC ADAMS, illustrating the linkage mechanism. Right: The resulting estimated piston force plotted against the angle of attack[cite: 20].</em>
+  </figcaption>
+</figure>
 
 ### Hydraulic Circuit Architecture
 
@@ -27,7 +35,14 @@ The fluid power systems were modeled in OpenModelica utilizing the SFPLibDyn lib
 *   **DRS Circuit:** Powered by a Parker Oildyne 5-Piston pump. 
 *   **Front Flaps Circuit:** Driven by a Marzocchi Eli1P-D-3.2 gear pump supplying two Danfoss OMM32 bi-directional hydraulic motors. 
 
-> **Engineering Insight:** To guarantee consistent actuation times for both extension and retraction in the DRS circuit, a dual servo valve configuration was implemented to actively compensate for the differential areas of the piston chambers. Furthermore, because the front flaps must operate continuously to maintain aerodynamic balance, a custom electro-hydraulic load-sensing line was integrated into the front circuit to minimize ongoing energy losses.
+To guarantee consistent actuation times for both extension and retraction in the DRS circuit, a dual servo valve configuration was implemented to actively compensate for the differential areas of the piston chambers. Furthermore, because the front flaps must operate continuously to maintain aerodynamic balance, a custom electro-hydraulic load-sensing line was integrated into the front circuit to minimize ongoing energy losses.
+
+<figure style="margin: 24px auto; text-align: center;">
+  <img src="/assets/images/drs-openmodelica-circuit-1.png" alt="DRS OpenModelica Circuit Schematic" style="border-radius: 8px; margin: 0 auto; max-width: 90%;">
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em>Fig. 2 - The OpenModelica lumped parameter model of a single piston in the DRS system.</em>
+  </figcaption>
+</figure>
 
 ### Dynamic Simulation Results
 

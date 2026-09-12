@@ -1,12 +1,11 @@
 <link rel="icon" type="image/svg+xml" href="https://github.githubassets.com/favicons/favicon.svg">
 <style>
-  /* Inject GitHub logo next to the site title */
+  /* github logo */
   .site-title {
     display: inline-flex !important;
     align-items: center !important;
     gap: 8px !important;
   }
-
   .site-title::before {
     content: "" !important;
     display: inline-block !important;
@@ -20,16 +19,11 @@
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
     position: relative !important;
-    top: 2px !important; /* Pushes the icon down into optical alignment */
+    top: 2px !important; 
   }
 
-  /* 1. Universal Text Link Hover Color & Center-Out Underline */
-  .masthead__menu-item a,
-  .site-title,
-  .page__content a,
-  .author__urls a,
-  .page__footer a,
-  .archive__item-title a {
+  /* link hover fx */
+  .masthead__menu-item a, .site-title, .page__content a, .author__urls a, .page__footer a, .archive__item-title a {
     color: inherit !important;
     text-decoration: none !important;
     display: inline-block !important;
@@ -37,22 +31,10 @@
     padding-bottom: 4px !important; 
     transition: color 0.2s ease-in-out !important;
   }
-
-  .masthead__menu-item a:hover,
-  .site-title:hover,
-  .page__content a:hover,
-  .author__urls a:hover,
-  .page__footer a:hover,
-  .archive__item-title a:hover {
+  .masthead__menu-item a:hover, .site-title:hover, .page__content a:hover, .author__urls a:hover, .page__footer a:hover, .archive__item-title a:hover {
     color: #ff0086 !important;
   }
-
-  .masthead__menu-item a::after,
-  .site-title::after,
-  .page__content a::after,
-  .author__urls a::after,
-  .page__footer a::after,
-  .archive__item-title a::after {
+  .masthead__menu-item a::after, .site-title::after, .page__content a::after, .author__urls a::after, .page__footer a::after, .archive__item-title a::after {
     content: "" !important;
     position: absolute !important;
     left: 0 !important;
@@ -64,29 +46,18 @@
     transform-origin: 50% 0 !important;
     transition: transform 0.25s ease-in-out !important;
   }
-
-  .masthead__menu-item a:hover::after,
-  .site-title:hover:after,
-  .page__content a:hover::after,
-  .author__urls a:hover::after,
-  .page__footer a:hover::after,
-  .archive__item-title a:hover::after {
+  .masthead__menu-item a:hover::after, .site-title:hover:after, .page__content a:hover::after, .author__urls a:hover::after, .page__footer a:hover::after, .archive__item-title a:hover::after {
     transform: scaleX(1) !important;
   }
 
-  /* 2. Disable clicking or hovering on the author's name */
-  .author__content a .author__name,
-  .author__content a[href] {
+  /* author profile tweaks */
+  .author__content a .author__name, .author__content a[href] {
     pointer-events: none !important;
     cursor: default !important;
     color: inherit !important;
     text-decoration: none !important;
   }
-  
-  .author__urls li {
-    margin-bottom: 0px !important;
-  }
-  
+  .author__urls li { margin-bottom: 0px !important; }
   .author__urls a {
     color: inherit !important;
     text-decoration: none !important;
@@ -94,63 +65,52 @@
     padding-bottom: 2px !important;
     background-image: none !important;
   }
-
   .author__urls a:hover {
     color: #ff0086 !important;
     text-decoration: none !important;
   }
 
+  /* sidebar opacity */
   .home-sidebar {
     opacity: 0.75 !important;
     transition: opacity 0.2s ease-in-out !important;
   }
-  .home-sidebar:hover {
-    opacity: 1 !important;
-  }
+  .home-sidebar:hover { opacity: 1 !important; }
   
+  /* layout fixes */
   @media (min-width: 64em) {
-    .layout--archive,
-    .initial-content {
+    .layout--archive, .initial-content {
       display: block !important;
       padding-left: 0 !important;
       margin-left: 0 !important;
       max-width: 100% !important;
     }
-    .initial-content > .inner,
-    .page,
-    .archive {
+    .initial-content > .inner, .page, .archive {
       float: none !important;
       width: 100% !important;
       margin-left: 0 !important;
       padding-left: 0 !important;
     }
   }
-  
   .layout--single .sidebar {
     position: relative !important;
     float: left !important;
     width: 25% !important;
     margin-right: 4% !important;
   }
-
   .layout--single .page {
     float: right !important;
     width: 71% !important;
     max-width: none !important;
   }
-
   @media (max-width: 64em) {
-    .layout--single .sidebar,
-    .layout--single .page {
+    .layout--single .sidebar, .layout--single .page {
       float: none !important;
       width: 100% !important;
     }
   }
 
-  /* ========================================== */
-  /* 3. THE MASTHEAD (SMOOTH STICKY GLASS)      */
-  /* ========================================== */
-  
+  /* masthead */
   .masthead {
     position: fixed !important; 
     top: 0 !important;
@@ -162,25 +122,14 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
     z-index: 9999 !important;
   }
-
-  .masthead__inner-wrap,
-  .masthead__menu,
-  .greedy-nav {
+  .masthead__inner-wrap, .masthead__menu, .greedy-nav {
     background: transparent !important; 
-    background-color: transparent !important;
     border: none !important;
     box-shadow: none !important;
   }
 
-  /* ========================================== */
-  /* 4. GLOBAL PAGE SPACING & POST HERO FIX     */
-  /* ========================================== */
-  
-  #main {
-    padding-top: 90px !important; 
-  }
-
-  /* 1. Fixes the standard post hero image (Removes all gaps and background bars) */
+  /* spacing and hero */
+  #main { padding-top: 90px !important; }
   .page__hero {
     margin-top: 70px !important; 
     margin-bottom: 0 !important; 
@@ -188,55 +137,28 @@
     background: transparent !important;
     max-height: none !important;
   }
-
-  .page__hero .wrapper {
-    padding: 0 !important;
-  }
-
+  .page__hero .wrapper { padding: 0 !important; }
   .page__hero img {
     width: 100% !important;
     height: auto !important;
     margin: 0 !important;
     display: block !important;
-    vertical-align: middle !important;
   }
-
-  /* 2. Controls the gap between the hero image and the post content */
-  .page__hero + #main,
-  .page__hero--overlay + #main {
-    padding-top: 24px !important; 
-  }
-
-  /* 3. Shrinks the massive gap at the top of the post content */
-  .layout--single .sidebar {
+  .page__hero + #main, .page__hero--overlay + #main { padding-top: 24px !important; }
+  .layout--single .sidebar, .layout--single .page {
     margin-top: 0 !important;
     padding-top: 0 !important;
   }
-  
-  .layout--single .page {
-    padding-top: 0 !important;
-    margin-top: 0 !important;
-  }
-  
-  .author__content {
-    margin-bottom: 16px !important;
-  }
-
-  html {
-    scroll-behavior: smooth !important;
-  }
-  /* ========================================== */
-  /* 5. HERO IMAGE & CONTAINER FIXES            */
-  /* ========================================== */
+  .author__content { margin-bottom: 16px !important; }
+  html { scroll-behavior: smooth !important; }
   
   .page__hero--overlay {
     margin-top: -90px !important; 
     padding-top: 200px !important; 
     padding-bottom: 100px !important;
-    -webkit-mask-image: none !important; 
     mask-image: none !important;
+    -webkit-mask-image: none !important;
   }
-
   .page__hero--overlay .wrapper {
     background: rgba(15, 15, 15, 0.7) !important; 
     backdrop-filter: blur(16px) !important;
@@ -252,48 +174,28 @@
     flex-direction: column !important;
     align-items: center !important;
   }
-
   .page__hero--overlay .page__title {
-    font-size: 1.8rem !important; /* Scaled down from 2.2rem */
+    font-size: 1.8rem !important; 
     font-weight: 800 !important;
     color: #ffffff !important; 
     margin-bottom: 12px !important;
-    text-shadow: none !important;
-    display: block !important;
   }
-
-  .page__hero--overlay .page__hero-excerpt,
   .page__hero--overlay .page__hero-excerpt p {
-    font-size: 0.95rem !important; /* Scaled down from 1rem */
-    line-height: 1.5 !important;
+    font-size: 0.95rem !important; 
     color: #d1d5db !important; 
     margin: 0 auto 24px auto !important;
-    text-shadow: none !important;
-    display: block !important;
   }
-
-  /* FORCING HERO BUTTONS SIDE-BY-SIDE */
-  .page__hero--overlay .wrapper p:has(.btn),
-  .page__hero--overlay .wrapper p:last-of-type {
+  .page__hero--overlay .wrapper p:has(.btn), .page__hero--overlay .wrapper p:last-of-type {
     display: flex !important;
-    flex-direction: row !important;
     justify-content: center !important;
-    align-items: center !important;
     gap: 16px !important;
     flex-wrap: wrap !important;
-    margin: 0 !important;
     width: 100% !important;
-  }
-
-  .page__hero--overlay .btn {
     margin: 0 !important;
-    width: auto !important; 
   }
+  .page__hero--overlay .btn { margin: 0 !important; width: auto !important; }
 
-  /* ========================================== */
-  /* 6. HERO AVATAR STYLES                      */
-  /* ========================================== */
-  
+  /* avatar */
   .hero-avatar {
     width: 90px !important; 
     height: 90px !important;
@@ -304,20 +206,13 @@
     object-fit: cover !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   }
-
   .hero-avatar:hover {
     transform: scale(1.05) !important;
     box-shadow: 0 12px 32px rgba(255,255,255,0.15) !important;
   }
 
-  /* ========================================== */
-  /* 7. UNIFIED MASTER BUTTON ENGINE            */
-  /* ========================================== */
-  
-  body a.btn-elegant,
-  body button.btn-elegant,
-  body .page__hero--overlay .btn,
-  body a.btn-whatsapp {
+  /* btn styles */
+  body a.btn-elegant, body button.btn-elegant, body .page__hero--overlay .btn, body a.btn-whatsapp {
     position: relative !important;
     display: flex !important;
     align-items: center !important;
@@ -334,55 +229,21 @@
     cursor: pointer !important;
     z-index: 1 !important;
     box-sizing: border-box !important;
-    text-align: center !important;
     border: none !important;
   }
-
-  /* Allow the CV download button to stay large */
-  body a.btn-large {
-    height: 50px !important;
-    font-size: 16px !important;
-    padding: 0 32px !important;
-  }
-
-  /* Button Background Colors */
-  body a.btn-elegant,
-  body button.btn-elegant,
-  body .page__hero--overlay .btn {
+  body a.btn-large { height: 50px !important; font-size: 16px !important; padding: 0 32px !important; }
+  body a.btn-elegant, body button.btn-elegant, body .page__hero--overlay .btn {
     background: rgba(25, 25, 25, 0.8) !important;
     color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.2) !important;
   }
-
-  body a.btn-whatsapp {
-    background: #25D366 !important;
-    color: #ffffff !important; 
-  }
-
-  /* FontAwesome Shift Fix */
-  body a.btn-elegant *,
-  body button.btn-elegant *,
-  body .page__hero--overlay .btn *,
-  body a.btn-whatsapp * {
+  body a.btn-whatsapp { background: #25D366 !important; color: #ffffff !important; }
+  body a.btn-elegant *, body button.btn-elegant *, body .page__hero--overlay .btn *, body a.btn-whatsapp * {
     color: inherit !important;
-    position: relative !important;
     z-index: 3 !important;
     line-height: 1 !important; 
-    display: inline-flex !important;
-    align-items: center !important;
-    margin: 0 !important;
-    transition: color 0.3s ease !important;
   }
-
-  /* ========================================== */
-  /* 8. BUTTON ANIMATION SWEEPS                 */
-  /* ========================================== */
-  
-  /* White Background Sweep */
-  body a.btn-elegant::before,
-  body button.btn-elegant::before,
-  body .page__hero--overlay .btn::before,
-  body a.btn-whatsapp::before {
+  body a.btn-elegant::before, body a.btn-whatsapp::before, body .page__hero--overlay .btn::before, body button.btn-elegant::before {
     content: '' !important;
     position: absolute !important;
     top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
@@ -391,125 +252,62 @@
     transform-origin: center !important;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     z-index: 1 !important;
-    display: block !important;
-    pointer-events: none !important;
   }
-
-  /* Slate Blue Underline Sweep (Elegant) */
-  body a.btn-elegant::after,
-  body button.btn-elegant::after,
-  body .page__hero--overlay .btn::after {
+  body a.btn-elegant::after, body button.btn-elegant::after, body .page__hero--overlay .btn::after {
     content: '' !important;
     position: absolute !important;
-    bottom: 0 !important; left: 0 !important; right: 0 !important;
-    height: 4px !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important; height: 4px !important;
     background-color: #52667a !important; 
     transform: scaleX(0) !important;
-    transform-origin: center !important;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     z-index: 2 !important;
-    display: block !important;
-    pointer-events: none !important;
   }
-
-  /* Dark Green Underline Sweep (WhatsApp) */
   body a.btn-whatsapp::after {
     content: '' !important;
     position: absolute !important;
-    bottom: 0 !important; left: 0 !important; right: 0 !important;
-    height: 4px !important;
+    bottom: 0 !important; left: 0 !important; right: 0 !important; height: 4px !important;
     background-color: #1ebe57 !important; 
     transform: scaleX(0) !important;
-    transform-origin: center !important;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
     z-index: 2 !important;
-    display: block !important;
-    pointer-events: none !important;
   }
-
-  /* ========================================== */
-  /* 9. HOVER STATES                            */
-  /* ========================================== */
-  
-  body a.btn-elegant:hover::before,
-  body button.btn-elegant:hover::before,
-  body .page__hero--overlay .btn:hover::before,
-  body a.btn-elegant:hover::after,
-  body button.btn-elegant:hover::after,
-  body .page__hero--overlay .btn:hover::after,
-  body a.btn-whatsapp:hover::before,
-  body a.btn-whatsapp:hover::after {
+  body a.btn-elegant:hover::before, body a.btn-whatsapp:hover::before, body a.btn-elegant:hover::after, body a.btn-whatsapp:hover::after, body .page__hero--overlay .btn:hover::before, body .page__hero--overlay .btn:hover::after, body button.btn-elegant:hover::before, body button.btn-elegant:hover::after {
     transform: scaleX(1) !important;
   }
-
-  body a.btn-elegant:hover,
-  body button.btn-elegant:hover,
-  body .page__hero--overlay .btn:hover,
-  body a.btn-whatsapp:hover {
+  body a.btn-elegant:hover, body a.btn-whatsapp:hover, body .page__hero--overlay .btn:hover, body button.btn-elegant:hover {
     transform: translateY(-3px) !important;
     color: #000000 !important; 
     text-decoration: none !important;
   }
+  body a.btn-elegant:hover *, body a.btn-whatsapp:hover *, body .page__hero--overlay .btn:hover *, body button.btn-elegant:hover * { color: #000000 !important; }
 
-  body a.btn-elegant:hover *,
-  body button.btn-elegant:hover *,
-  body .page__hero--overlay .btn:hover *,
-  body a.btn-whatsapp:hover * {
-    color: #000000 !important;
-  }
-
-  body a.btn-elegant:hover,
-  body button.btn-elegant:hover,
-  body .page__hero--overlay .btn:hover {
-    box-shadow: 0 8px 24px rgba(0,0,0,0.5) !important;
-  }
-
-  body a.btn-whatsapp:hover {
-    box-shadow: 0 8px 24px rgba(37,211,102,0.4) !important;
-  }
-
-  /* ========================================== */
-  /* 10. HOMEPAGE PROJECT CAROUSEL CARDS        */
-  /* ========================================== */
-
-  /* The Card is now the master flex container */
+  /* proj cards */
   .home-project-card {
     flex: 0 0 100% !important; 
-    scroll-snap-align: start;
-    position: relative !important; /* CRITICAL: anchors the invisible link */
+    scroll-snap-align: center !important; 
+    position: relative !important; 
     display: flex !important;
     flex-direction: column !important;
     width: 100%;
-    height: auto;
     background: #0a0a0a;
     border: 1px solid #2a2a2a;
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease, border-color 0.3s ease;
   }
-
   @media (min-width: 768px) {
-    .home-project-card {
-      flex-direction: row !important;
-      height: 360px !important;
-    }
+    .home-project-card { flex-direction: row !important; height: 360px !important; }
   }
-
   .home-project-card:hover {
     transform: translateY(-6px) !important;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
     border-color: #52667a !important; 
   }
-
-  /* Invisible Link Overlay */
   .home-project-overlay-link {
     position: absolute !important;
     top: 0; left: 0; right: 0; bottom: 0;
     z-index: 10 !important;
-    text-decoration: none !important;
   }
-
-  /* Image Half */
   .home-project-image {
     width: 100%;
     height: 240px;
@@ -517,403 +315,145 @@
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid #2a2a2a;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #3f4e5d;
-    font-size: 64px;
+    display: flex; align-items: center; justify-content: center;
+    color: #3f4e5d; font-size: 64px;
   }
-
   @media (min-width: 768px) {
     .home-project-image {
-      width: 45% !important;
-      height: 100% !important;
-      border-bottom: none !important;
-      border-right: 1px solid #2a2a2a !important;
-      background-color: #ffffff; /* Fills transparent space for CAD */
+      width: 45% !important; height: 100% !important;
+      border-bottom: none !important; border-right: 1px solid #2a2a2a !important;
+      background-color: #ffffff;
     }
   }
-
-  .home-project-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; 
-    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .home-project-card:hover .home-project-image img {
-    transform: scale(1.06);
-  }
-
-  /* Text Half */
+  .home-project-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+  .home-project-card:hover .home-project-image img { transform: scale(1.06); }
   .home-project-content {
-    width: 100%;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    width: 100%; padding: 32px; display: flex; flex-direction: column;
     background: linear-gradient(135deg, #111111 0%, #080808 100%);
   }
-
   @media (min-width: 768px) {
-    .home-project-content {
-      width: 55% !important;
-      padding: 36px 40px !important;
-    }
+    .home-project-content { width: 55% !important; padding: 36px 40px !important; }
   }
-
   .home-project-title {
-    font-size: 1.3rem !important; /* Scaled down from 1.6rem */
-    font-weight: 700 !important;
-    color: #ffffff !important;
-    margin: 0 0 12px 0 !important;
-    line-height: 1.25 !important;
-    letter-spacing: -0.02em;
+    font-size: 1.3rem !important; font-weight: 700 !important; color: #ffffff !important;
+    margin: 0 0 12px 0 !important; line-height: 1.25 !important;
   }
-
-  .home-project-meta {
-    font-size: 0.8rem; /* Scaled down slightly */
-    color: #888888;
-    margin: 0 0 12px 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
+  .home-project-meta { font-size: 0.8rem; color: #888888; margin: 0 0 12px 0; display: flex; gap: 8px; }
   .home-project-excerpt {
-    font-size: 0.9rem !important; /* Scaled down from 1rem */
-    color: #a1a1aa !important;
-    line-height: 1.5 !important;
-    margin: 0 0 24px 0 !important;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 0.9rem !important; color: #a1a1aa !important; line-height: 1.5 !important; margin: 0 0 24px 0 !important;
+    display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
   }
-
   .home-project-readmore {
-    margin-top: auto; 
-    font-size: 0.95rem; /* Scaled down from 1.05rem */
-    font-weight: 600;
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: color 0.2s ease;
+    margin-top: auto; font-size: 0.95rem; font-weight: 600; color: #ffffff; display: flex; gap: 8px;
   }
+  .home-project-readmore i { transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+  .home-project-card:hover .home-project-readmore { color: #d1d5db; }
+  .home-project-card:hover .home-project-readmore i { transform: translateX(6px); }
 
-  .home-project-readmore i {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .home-project-card:hover .home-project-readmore {
-    color: #d1d5db; 
-  }
-
-  .home-project-card:hover .home-project-readmore i {
-    transform: translateX(6px); 
-  }
-  /* ========================================== */
-  /* 11. MOBILE OPTIMIZATIONS                   */
-  /* ========================================== */
-  
-  /* Hide the custom mobile contact button on desktop */
-  .mobile-contact-btn {
-    display: none !important;
-  }
-
+  /* mobile media queries */
+  .mobile-contact-btn { display: none !important; }
   @media (max-width: 768px) {
-    
-    /* ALIGNMENT FIX: Matches the main content padding with the header logo */
-    .layout--single .page__inner-wrap,
-    .contacts-page-wrapper {
-      padding-left: 24px !important; 
-      padding-right: 24px !important;
+    .layout--single .page__inner-wrap, .contacts-page-wrapper {
+      padding-left: 24px !important; padding-right: 24px !important;
     }
-
-    /* 1. Hero Section Mobile Fixes */
-    .page__hero--overlay {
-      padding-top: 190px !important; 
-      padding-bottom: 60px !important;
-    }
-    
-    .page__hero--overlay .wrapper {
-      padding: 24px 16px !important; 
-      width: 90% !important; 
-    }
-    
-    .hero-avatar {
-      width: 70px !important; 
-      height: 70px !important;
-      margin-bottom: 12px !important;
-    }
-    
-    .page__hero--overlay .page__title {
-      font-size: 1.5rem !important; 
-    }
-    
-    .page__hero--overlay .page__hero-excerpt,
-    .page__hero--overlay .page__hero-excerpt p {
-      font-size: 0.9rem !important;
-      margin-bottom: 16px !important;
-    }
-
-    .page__hero--overlay .wrapper p:has(.btn),
-    .page__hero--overlay .wrapper p:last-of-type {
-      flex-direction: column !important;
-      gap: 10px !important;
-    }
-
-    /* 2. Homepage Project Cards Mobile Fixes */
-    .home-project-image {
-      height: 180px !important; 
-    }
-    
-    .home-project-content {
-      padding: 20px 24px !important; 
-    }
-    
-    .home-project-title {
-      font-size: 1.25rem !important;
-      margin-bottom: 8px !important;
-    }
-    
-    .home-project-excerpt {
-      font-size: 0.85rem !important;
-      margin-bottom: 16px !important;
-      -webkit-line-clamp: 2; 
-    }
-
-    /* 3. POST PAGES (ALL POSTS) MOBILE FIXES */
-    /* Shrink the massive gap at the top of the screen */
-    .layout--single .sidebar {
-      margin-top: 0 !important;
-      padding-top: 16px !important;
-    }
-    
-    .layout--single .page {
-      padding-top: 0 !important;
-      margin-top: 0 !important;
-    }
-    
-    .author__content {
-      margin-bottom: 8px !important;
-    }
-
-    /* Show our custom Contacts button and hide the native dropdown list completely */
-    .mobile-contact-btn {
-      display: flex !important;
-    }
-    
-    ul.author__urls {
-      display: none !important;
-    }
+    .page__hero--overlay { padding-top: 190px !important; padding-bottom: 60px !important; }
+    .page__hero--overlay .wrapper { padding: 24px 16px !important; width: 90% !important; }
+    .hero-avatar { width: 70px !important; height: 70px !important; margin-bottom: 12px !important; }
+    .page__hero--overlay .page__title { font-size: 1.5rem !important; }
+    .page__hero--overlay .page__hero-excerpt p { font-size: 0.9rem !important; margin-bottom: 16px !important; }
+    .page__hero--overlay .wrapper p:has(.btn) { flex-direction: column !important; gap: 10px !important; }
+    .home-project-image { height: 180px !important; }
+    .home-project-content { padding: 20px 24px !important; }
+    .home-project-title { font-size: 1.25rem !important; margin-bottom: 8px !important; }
+    .home-project-excerpt { font-size: 0.85rem !important; margin-bottom: 16px !important; -webkit-line-clamp: 2; }
+    .layout--single .sidebar { padding-top: 16px !important; }
+    .mobile-contact-btn { display: flex !important; }
+    ul.author__urls { display: none !important; }
   }
+  .sidebar, .author__urls-wrapper { -ms-overflow-style: none !important; scrollbar-width: none !important; }
+  .sidebar::-webkit-scrollbar, .author__urls-wrapper::-webkit-scrollbar { display: none !important; }
 
-  /* --- HIDE SIDEBAR SCROLLBAR --- */
-  .sidebar,
-  .author__urls-wrapper {
-    -ms-overflow-style: none !important;  /* IE and Edge */
-    scrollbar-width: none !important;     /* Firefox */
-  }
-
-  .sidebar::-webkit-scrollbar,
-  .author__urls-wrapper::-webkit-scrollbar {
-    display: none !important;             /* Chrome, Safari, and Opera */
-  }
-  /* ========================================== */
-  /* 12. PREMIUM FLOATING GLASS DROPDOWN        */
-  /* ========================================== */
-
-  /* 1. Closed State: Faded, scaled down, and shifted up */
+  /* glass nav dropdown */
   .greedy-nav .hidden-links.hidden {
-    opacity: 0 !important;
-    visibility: hidden !important;
-    transform: translateY(-10px) scale(0.95) !important;
-    pointer-events: none !important;
+    opacity: 0 !important; visibility: hidden !important; transform: translateY(-10px) scale(0.95) !important; pointer-events: none !important;
   }
-
-  /* 2. The Glass Card */
   .greedy-nav .hidden-links {
     position: absolute !important;
-    top: 70px !important; 
-    right: 16px !important; 
-    
-    /* Highly Adaptable Sizing */
+    top: calc(100% + 8px) !important; 
+    right: 0 !important; 
     min-width: 220px !important;
     width: max-content !important;
-    max-width: calc(100vw - 32px) !important; /* Prevents it from touching the screen edges */
-    
-    background: rgba(24, 24, 27, 0.85) !important; /* Deep dark zinc */
+    max-width: calc(100vw - 32px) !important; 
+    background: rgba(24, 24, 27, 0.85) !important; 
     backdrop-filter: blur(24px) !important;
     -webkit-backdrop-filter: blur(24px) !important;
     border: 1px solid rgba(255, 255, 255, 0.08) !important;
     border-radius: 16px !important;
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 20px rgba(0, 0, 0, 0.5) !important;
-    
-    padding: 8px !important; /* Inner padding to hold the link 'pills' */
+    padding: 8px !important; 
     z-index: 9998 !important;
-
-    /* Open State: Smoothly snaps into full size */
     opacity: 1 !important;
     visibility: visible !important;
     transform: translateY(0) scale(1) !important;
-    transform-origin: top right !important; /* Animates outward from the hamburger icon */
+    transform-origin: top right !important; 
     transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
   }
-
-  /* Remove Jekyll's native arrows */
-  .greedy-nav .hidden-links::before,
-  .greedy-nav .hidden-links::after {
-    display: none !important; 
-  }
-
-  /* 3. Link Wrapper & Formatting */
+  .greedy-nav .hidden-links::before, .greedy-nav .hidden-links::after { display: none !important; }
   .greedy-nav .hidden-links ul {
-    margin: 0 !important;
-    padding: 0 !important;
-    list-style: none !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 4px !important; /* Spacing between the links */
+    margin: 0 !important; padding: 0 !important; list-style: none !important; display: flex !important; flex-direction: column !important; gap: 4px !important;
   }
-
-  .greedy-nav .hidden-links li {
-    display: block !important;
-    border: none !important;
-    margin: 0 !important;
-  }
-
+  .greedy-nav .hidden-links li { display: block !important; border: none !important; margin: 0 !important; }
   .greedy-nav .hidden-links a {
-    display: block !important;
-    padding: 14px 20px !important;
-    font-size: 16px !important; 
-    font-weight: 600 !important;
-    letter-spacing: 0.02em !important;
-    color: #e4e4e7 !important;
-    text-decoration: none !important;
-    border-radius: 12px !important; /* Rounds the hover highlight */
-    transition: all 0.2s ease !important;
-    text-align: left !important; /* Left alignment looks much cleaner inside a card */
+    display: block !important; padding: 14px 20px !important; font-size: 16px !important; font-weight: 600 !important;
+    color: #e4e4e7 !important; text-decoration: none !important; border-radius: 12px !important; text-align: left !important;
   }
+  .greedy-nav .hidden-links a:hover { background-color: rgba(255, 0, 134, 0.15) !important; color: #ff0086 !important; }
+  .greedy-nav button.greedy-nav__toggle { z-index: 99999 !important; position: relative !important; }
 
-  /* 4. Modern Hover/Active State */
-  .greedy-nav .hidden-links a:hover,
-  .greedy-nav .hidden-links a:active {
-    background-color: rgba(255, 0, 134, 0.15) !important; 
-    color: #ff0086 !important;
-  }
-
-  /* Keep toggle button above the menu */
-  .greedy-nav button.greedy-nav__toggle {
-    z-index: 99999 !important;
-    position: relative !important;
-  }
-  /* ========================================== */
-  /* 13. SEARCH OVERLAY VISIBILITY FIX          */
-  /* ========================================== */
-
-  .search-content {
-    /* Pushes the search input down so it clears the sticky masthead */
-    padding-top: 90px !important; 
-    position: relative !important;
-    z-index: 9997 !important;
-  }
-
-  /* Ensures the search input field and results look clean */
+  /* search overlay spacing */
+  .search-content { padding-top: 90px !important; position: relative !important; z-index: 9997 !important; }
   .search-content .search-input {
-    border-radius: 8px !important;
-    background-color: #111111 !important;
-    color: #e4e4e7 !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important; background-color: #111111 !important; color: #e4e4e7 !important; border: 1px solid rgba(255, 255, 255, 0.1) !important;
   }
-  
-  .search-content .search-input:focus {
-    border-color: #ff0086 !important;
+  .search-content .search-input:focus { border-color: #ff0086 !important; }
+
+  /* carousel alignment */
+  .projects-carousel-container {
+    display: block !important; position: relative !important; width: 100% !important; margin: 0 auto 32px auto !important;
+  }
+  .proj-slider {
+    display: flex !important; width: 100% !important; margin: 0 !important; scroll-snap-type: x mandatory !important;
+  }
+  .proj-arrow {
+    position: absolute !important; top: 50% !important; transform: translateY(-50%) !important; margin: 0 !important; z-index: 100 !important;
+  }
+  @media (min-width: 769px) {
+    .proj-left-arrow { left: -60px !important; }
+    .proj-right-arrow { right: -60px !important; }
+  }
+  @media (max-width: 768px) {
+    .proj-left-arrow { left: -20px !important; }
+    .proj-right-arrow { right: -20px !important; }
   }
 </style>
-<!-- ========================================== -->
-<!-- DYNAMIC POST TAGS (DESKTOP & MOBILE)       -->
-<!-- ========================================== -->
+
+<!-- dynamic tags logic -->
 {% if page.layout == 'single' and page.tags.size > 0 %}
 <style>
-  /* Base Tag Styles */
-  .portfolio-tags-wrapper {
-    width: 100%;
-    clear: both;
-  }
-  
-  .portfolio-tags-title {
-    font-size: 0.85rem !important;
-    text-transform: uppercase;
-    color: #888888 !important;
-    margin-bottom: 12px !important;
-    font-weight: 700 !important;
-    letter-spacing: 0.05em;
-  }
-  
-  .portfolio-tags-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
-  
+  .portfolio-tags-wrapper { width: 100%; clear: both; }
+  .portfolio-tags-title { font-size: 0.85rem !important; text-transform: uppercase; color: #888888 !important; margin-bottom: 12px !important; font-weight: 700 !important; }
+  .portfolio-tags-list { display: flex; flex-wrap: wrap; gap: 8px; }
   .portfolio-tag-pill {
-    background: #111111;
-    border: 1px solid #333333;
-    color: #a1a1aa;
-    padding: 4px 12px;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    transition: all 0.2s ease;
-    display: inline-block;
+    background: #111111; border: 1px solid #333333; color: #a1a1aa; padding: 4px 12px; border-radius: 12px; font-size: 0.75rem; font-weight: 600; display: inline-block;
   }
-  
-  .portfolio-tag-pill:hover {
-    background: #1a1a1a;
-    border-color: #ff0086; 
-    color: #ffffff;
-    transform: translateY(-2px);
-  }
+  .portfolio-tag-pill:hover { background: #1a1a1a; border-color: #ff0086; color: #ffffff; transform: translateY(-2px); }
+  .tags-desktop { display: block; margin-top: 32px !important; padding-top: 24px !important; border-top: 1px solid #2a2a2a; }
+  .tags-mobile { display: none; margin-top: 56px !important; margin-bottom: 56px !important; padding-top: 5px !important; }
 
-  /* Desktop Placement (Sidebar) */
-  .tags-desktop { 
-    display: block; 
-    margin-top: 32px !important;
-    padding-top: 24px !important;
-    border-top: 1px solid #2a2a2a;
-  }
-  
-  /* Mobile Placement (Bottom of Post) */
-  .tags-mobile { 
-    display: none; 
-    margin-top: 56px !important;    
-    margin-bottom: 56px !important; 
-    padding-top: 5px !important;
-  }
-
-  /* --- DESKTOP SIDEBAR SCROLL FIX --- */
   @media (min-width: 769px) {
-    /* 1. Removes the internal scrollbar and height limit from the author profile */
-    .author__urls-wrapper {
-      max-height: none !important;
-      overflow: visible !important;
-    }
-
-    /* 2. Un-sticks the entire sidebar so it scrolls naturally with the page */
-    .layout--single .sidebar,
-    .sidebar.sticky {
-      position: relative !important;
-      top: 0 !important;
-      height: auto !important;
-      max-height: none !important;
-      overflow: visible !important;
-      transform: none !important;
-    }
+    .author__urls-wrapper { max-height: none !important; overflow: visible !important; }
+    .layout--single .sidebar, .sidebar.sticky { position: relative !important; top: 0 !important; height: auto !important; max-height: none !important; overflow: visible !important; transform: none !important; }
   }
-
-  /* Display Logic Check */
   @media (max-width: 768px) {
     .tags-desktop { display: none !important; }
     .tags-mobile { display: block !important; }
@@ -922,31 +462,19 @@
 
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // Safely pull the array of tags from the Jekyll post front matter
     const postTags = {{ page.tags | jsonify }};
-
     if (postTags && postTags.length > 0) {
-      // Build the HTML for the tags
-      let tagsHtml = `
-        <h4 class="portfolio-tags-title"><i class="fas fa-tags" style="margin-right: 6px;"></i> Tags</h4>
-        <div class="portfolio-tags-list">
-      `;
-      postTags.forEach(tag => {
-        tagsHtml += `<span class="portfolio-tag-pill">${tag}</span>`;
-      });
+      let tagsHtml = `<h4 class="portfolio-tags-title"><i class="fas fa-tags" style="margin-right: 6px;"></i> Tags</h4><div class="portfolio-tags-list">`;
+      postTags.forEach(tag => { tagsHtml += `<span class="portfolio-tag-pill">${tag}</span>`; });
       tagsHtml += `</div>`;
 
-      // 1. Inject into Desktop Sidebar (OUTSIDE the scrollable wrapper)
       const sidebar = document.querySelector('.sidebar');
       if (sidebar) {
         const desktopTags = document.createElement('div');
         desktopTags.className = 'portfolio-tags-wrapper tags-desktop';
         desktopTags.innerHTML = tagsHtml;
-        // Appends to the very bottom of the sidebar container, bypassing the restricted box
         sidebar.appendChild(desktopTags);
       }
-
-      // 2. Inject into Mobile View (Right before the Share Options)
       const shareSection = document.querySelector('.page__share');
       if (shareSection) {
         const mobileTags = document.createElement('div');
@@ -959,9 +487,9 @@
 </script>
 {% endif %}
 
+<!-- global scripts -->
 <script>
   document.addEventListener("DOMContentLoaded", function() {
-    // 1. Ensure external links open in a new tab safely
     const links = document.querySelectorAll("a");
     links.forEach(link => {
       const href = link.getAttribute("href");
@@ -976,13 +504,10 @@
       }
     });
 
-    // 2. HERO BUTTONS FIX (Forces them to behave exactly like profile cards)
     const heroButtons = document.querySelectorAll('.page__hero--overlay .btn');
     heroButtons.forEach(btn => {
       btn.classList.forEach(className => {
-        if (className.startsWith('btn--')) {
-          btn.classList.remove(className);
-        }
+        if (className.startsWith('btn--')) btn.classList.remove(className);
       });
       btn.classList.add('btn-elegant');
       if (!btn.querySelector('span')) {
@@ -991,43 +516,34 @@
       }
     });
 
-    // 3. MOBILE AUTHOR PROFILE FIX: Replace "Follow" with "Contacts"
     const authorUrlsWrapper = document.querySelector('.author__urls-wrapper');
     if (authorUrlsWrapper) {
       const followBtn = authorUrlsWrapper.querySelector('button');
       if (followBtn) {
-        // Create the new Contacts button
         const contactBtn = document.createElement('a');
         contactBtn.href = '/contacts/';
         contactBtn.className = 'btn-elegant mobile-contact-btn';
-        
-        // Inline styles to perfectly fit the author profile block
         contactBtn.style.height = '34px'; 
         contactBtn.style.padding = '0 16px';
         contactBtn.style.fontSize = '13px';
         contactBtn.style.marginTop = '12px';
         contactBtn.style.width = '100%';
         contactBtn.innerHTML = '<span>Contacts</span> <i class="fas fa-arrow-right" style="margin-left: 6px;"></i>';
-        
-        // Swap them out!
         authorUrlsWrapper.replaceChild(contactBtn, followBtn);
       }
     }
   });
 </script>
-<!-- ========================================== -->
-<!-- 14. MATHJAX LATEX RENDERING ENGINE         -->
-<!-- ========================================== -->
+
+<!-- mathjax -->
 <script>
   MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
       displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      tags: 'ams' /* Enables equation numbering */
+      tags: 'ams'
     },
-    svg: {
-      fontCache: 'global'
-    }
+    svg: { fontCache: 'global' }
   };
 </script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>

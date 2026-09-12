@@ -11,14 +11,14 @@ header:
   <p>A selection of technical projects focusing on high-performance vehicle dynamics, active aerodynamics, and dynamic simulation.</p>
 </div>
 
-<!-- MODERN CSS GRID GALLERY (DYNAMIC) -->
+<!-- Project Grid Gallery -->
 <div class="projects-gallery">
   
   {% for post in site.posts %}
   <div class="project-card">
     <div class="project-image-wrapper">
       
-      <!-- Dynamically pulls the teaser image, falls back to a default if you forget to add one -->
+      <!-- Image Wrapper -->
       {% if post.header.teaser %}
         <img src="{{ post.header.teaser | relative_url }}" alt="{{ post.title }}">
       {% elsif post.header.image %}
@@ -27,18 +27,18 @@ header:
         <img src="https://images.unsplash.com/photo-1592853625511-ad3cd29fbcf4?q=80&w=800&auto=format&fit=crop" alt="Engineering Project Placeholder">
       {% endif %}
       
-      <!-- Glass-morphism Overlay on Hover linked to the actual post URL -->
+      <!-- Hover Overlay -->
       <div class="project-overlay">
         <a href="{{ post.url | relative_url }}" class="btn-elegant"><span>View Project</span></a>
       </div>
     </div>
     
     <div class="project-content">
-      <!-- Dynamically pulls the Title and trims the Excerpt to keep cards uniform -->
+      <!-- Content -->
       <h3>{{ post.title }}</h3>
       <p>{{ post.excerpt | strip_html | truncatewords: 18 }}</p>
       
-      <!-- Dynamically generates tech stack tags from the post's YAML front matter -->
+      <!-- Tags -->
       <div class="project-tags">
         {% for tag in post.tags %}
           <span class="tag">{{ tag }}</span>
@@ -50,16 +50,14 @@ header:
 
 </div>
 
-
-<!-- PROJECT GALLERY CSS -->
 <style>
-  /* Page Setup Constraints */
+  /* Page Constraints */
   .layout--single #main,
   .layout--single .page {
     max-width: 1200px !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding-left: 0 !important; /* Removes the double/triple padding */
+    padding-left: 0 !important;
     padding-right: 0 !important;
   }
 
@@ -67,13 +65,13 @@ header:
     max-width: 1200px !important;
     width: 100% !important;
     margin: 0 auto !important;
-    padding-left: 24px !important; /* Applies padding only once */
+    padding-left: 24px !important;
     padding-right: 24px !important;
   }
 
   .page__title {
     padding-top: 1rem;
-    font-size: 2rem; /* Scaled down from 2.5rem */
+    font-size: 2rem;
     font-weight: 800;
   }
 
@@ -83,21 +81,20 @@ header:
   }
 
   .page-description p {
-    font-size: 1rem; /* Scaled down from 1.15rem */
+    font-size: 1rem;
     color: #d1d5db;
     line-height: 1.6;
   }
 
-  /* --- GRID ARCHITECTURE --- */
+  /* Grid Layout */
   .projects-gallery {
     display: grid;
-    /* Automatically creates responsive columns (min 340px wide) */
     grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
     gap: 32px;
     padding-bottom: 64px;
   }
 
-  /* --- CARD DESIGN --- */
+  /* Cards */
   .project-card {
     display: flex;
     flex-direction: column;
@@ -114,11 +111,11 @@ header:
     border-color: #3f4e5d;
   }
 
-  /* --- IMAGE & HOVER OVERLAY --- */
+  /* Images & Overlays */
   .project-image-wrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 9; /* Perfect cinematic ratio for thumbnails */
+    aspect-ratio: 16 / 9;
     overflow: hidden;
   }
 
@@ -129,12 +126,10 @@ header:
     transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Zoom the image slightly when hovering over the card */
   .project-card:hover .project-image-wrapper img {
     transform: scale(1.08);
   }
 
-  /* The glass blur overlay that hides the button until hover */
   .project-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
@@ -144,16 +139,16 @@ header:
     display: flex;
     align-items: center;
     justify-content: center;
-    opacity: 0; /* Hidden by default */
+    opacity: 0;
     transition: opacity 0.3s ease;
     z-index: 2;
   }
 
   .project-card:hover .project-overlay {
-    opacity: 1; /* Appears smoothly on hover */
+    opacity: 1;
   }
 
-  /* --- CONTENT SECTION --- */
+  /* Content Typography */
   .project-content {
     padding: 24px;
     display: flex;
@@ -163,7 +158,7 @@ header:
   }
 
   .project-content h3 {
-    font-size: 1.15rem; /* Scaled down from 1.25rem */
+    font-size: 1.15rem;
     font-weight: 700;
     color: #ffffff;
     margin: 0;
@@ -171,17 +166,18 @@ header:
   }
 
   .project-content p {
-    font-size: 0.85rem; /* Scaled down from 0.95rem */
+    font-size: 0.85rem;
     color: #a1a1aa;
     line-height: 1.5;
     margin: 0 0 16px 0;
   }
-  /* --- TECH STACK TAGS --- */
+  
+  /* Tags */
   .project-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-top: auto; /* Pushes tags to the very bottom of the card */
+    margin-top: auto;
   }
 
   .tag {

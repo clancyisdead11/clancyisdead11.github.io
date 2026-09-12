@@ -46,10 +46,26 @@ $$G(s) = \frac{2}{(s+2)(s+0.0025)}$$
 
 The initial system is characterized by two distinct poles: a fast pole governed by the driveline at $p_{1} = -2$, and a very slow pole governed by the aerodynamic drag at $p_{2} = -0.0025$.
 
-
+<figure style="margin: 24px auto; text-align: center;">
+  <img src="/assets/images/cc-model.png" alt="Cruise Control Block Diagram" style="border-radius: 8px; margin: 0 auto; max-width: 90%;">
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em>Fig. 1 - Block diagram of the longitudinal cruise control system architecture, illustrating the reference inputs, controller, driveline, and vehicle plant.</em>
+  </figcaption>
+</figure>
 
 ### Controller Strategy & Evaluation
 
-> **Engineering Insight:** A standard Proportional-Integral (PI) controller ($C(s) = \frac{K}{s}$) led to instability at higher gains and produced sluggish settling times governed by the $10^{-3}$ dominant pole. A pole cancellation strategy was required to stabilize the response.
+A standard Proportional-Integral (PI) controller ($C(s) = \frac{K}{s}$) led to instability at higher gains and produced sluggish settling times governed by the $10^{-3}$ dominant pole. A pole cancellation strategy was required to stabilize the response.
 
 By placing a zero at $s = -0.003$ to counteract the vehicle's slow drag pole, and evaluating both PI and PID architectures via Root Locus analysis, we determined that an optimized Real PID controller provided the most stable balance. It managed the transients introduced by aggressive road slope changes (-10% to +5% grades) and minimized the settling time to 0.76 seconds while respecting the overdamped and steady-state error constraints.
+
+
+<figure style="margin: 24px auto; text-align: center;">
+  <div style="display: flex; gap: 16px; justify-content: center; align-items: center;">
+    <img src="/assets/images/cc-rl.png" alt="PID Root Locus Plot" style="width: 48%; border-radius: 8px; margin: 0;">
+    <img src="/assets/images/cc-sr.png" alt="Step Response Comparison Plot" style="width: 48%; border-radius: 8px; margin: 0;">
+  </div>
+  <figcaption style="text-align: center; margin-top: 12px; color: #a1a1aa; font-size: 0.9rem; display: block;">
+    <em>Fig. 2 - Left: Root Locus plot for the PID controller confirming the closed-loop pole placement. Right: Closed-loop step response comparison, demonstrating the optimized PID 1 configuration achieving a settling time of 0.76 seconds while satisfying the damping constraints.</em>
+  </figcaption>
+</figure>
