@@ -14,10 +14,10 @@ header:
   <div class="cv-cta-container">
     <div class="cv-blurred-bg"></div>
     <div class="cv-overlay-content">
-      <p class="cv-subphrase">Download my complete CV for a detailed look at my engineering experience, technical skills, and academic projects.</p>
+      <p class="cv-subphrase">View my complete CV for a detailed look at my engineering experience, technical skills, and academic projects.</p>
       
-      <a href="https://drive.google.com/uc?export=download&id=1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl" class="btn-elegant btn-large" style="border: 1px solid rgba(255,255,255,0.3) !important;">
-        <i class="fas fa-file-arrow-down" aria-hidden="true"></i> <span>Download Full CV</span>
+      <a href="https://drive.google.com/file/d/1C2pIr5mhpDPXrDTpMnGOzuzuinF-vLZl/view" target="_blank" rel="noopener noreferrer" class="btn-elegant btn-large" style="border: 1px solid rgba(255,255,255,0.3) !important;">
+        <i class="fas fa-file-arrow-down" aria-hidden="true"></i> <span>View Full CV</span>
       </a>
     </div>
   </div>
