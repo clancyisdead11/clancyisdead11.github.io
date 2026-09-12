@@ -99,13 +99,13 @@ header:
           <i class="fab fa-github" aria-hidden="true"></i>
         </div>
         <div class="github-badge-body">
-          <img src="https://github.com/clancyisdead11.png" alt="Andrea Solfrizzi" class="github-badge-pic">
+          <img src="https://github.com/andreasolfrizzi.png" alt="Andrea Solfrizzi" class="github-badge-pic">
           <div class="card-text-content">
             <h3 class="email-badge-name">Andrea Solfrizzi</h3>
             <p class="email-badge-bio">Engineering Student | Vehicle Dynamics & Aerodynamics</p>
-            <span class="github-badge-username">@clancyisdead11</span>
+            <span class="github-badge-username">@andreasolfrizzi</span>
           </div>
-          <a href="https://github.com/clancyisdead11" target="_blank" class="btn-elegant" style="width: 100%; margin-top: auto;"><span>Visualizza profilo</span></a>
+          <a href="https://github.com/andreasolfrizzi" target="_blank" class="btn-elegant" style="width: 100%; margin-top: auto;"><span>Visualizza profilo</span></a>
         </div>
       </div>
     </div>
